@@ -1,26 +1,25 @@
 import { StatusBar } from "expo-status-bar";
 import {SafeAreaView, StyleSheet} from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-import RecipeList from "./src/RecipeList";
-import HomeHeader from "./src/HomeHeader";
-import HomeSpotlight from "./src/HomeSpotlight";
+
+import RoomRecipe from "./src/RoomRecipe";
+import HomeRecipe from "./src/HomeRecipe";
+
+const Stack = createStackNavigator();
 
 export default function App() {
   	return (
-    	<SafeAreaView style={styles.container}>
-      		<HomeHeader/>
-			<HomeSpotlight/>
-      		<RecipeList/>
-    	</SafeAreaView>
+		<NavigationContainer>
+			<Stack.Navigator initialRouteName="Home">
+				<Stack.Screen name="Home" component={HomeRecipe} />
+				<Stack.Screen name="Room" component={RoomRecipe} />
+			</Stack.Navigator>
+		</NavigationContainer>
   	);
 }
 //<HomeSpotlight/>
-
-const styles = StyleSheet.create({
-  	container: {
-    	backgroundColor: "#FFE1A8",
-  	},
-});
 
 // Margin = internally occupies space
 // Padding = externally occupies space

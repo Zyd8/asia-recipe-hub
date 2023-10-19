@@ -1,12 +1,13 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity} from "react-native";
-
-import RoomRecipe from "./RoomRecipe";
+import { useNavigation } from '@react-navigation/native';
 
 const RecipeListCard = ({ recipe }) => {
+	const navigation = useNavigation();
 
 	const handleRecipeCardPress = () => {
 		console.log("Pressed Card " + recipe.id);
+		navigation.navigate("Room", { recipe }); 
   	}
 
   	return (

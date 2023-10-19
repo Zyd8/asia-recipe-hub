@@ -30,13 +30,13 @@ const styles = StyleSheet.create({
 		backgroundColor: "#AB8476",
 		flexDirection: 'row', 
 		alignItems: 'center', 
-		paddingTop: 30,
+		paddingTop: 10,
 		paddingBottom: 10,
 		paddingLeft: 5,
 		paddingRight: 5,
 	},
 	textInput: {
-		backgroundColor: "lightgrey",
+		backgroundColor: "white",
 		borderRadius: 10,
 		flex: 1,
 		height: 40,
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
 		marginRight: 10
 	},
 	filterButton: {
-		backgroundColor: "lightgrey",
+		backgroundColor: "white",
 		borderRadius: 10,
 		marginLeft: 10, 
 		padding: 3,
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
 	icon: {
 		width: 30,
 		height: 30,
-		tintColor: "lightgrey", 
+		tintColor: "white", 
 	},
 });
 

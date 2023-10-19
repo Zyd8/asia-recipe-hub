@@ -1,5 +1,5 @@
 import Carousel from 'react-native-snap-carousel';
-import { View, Text, Image, StyleSheet} from "react-native";
+import { View, Image, StyleSheet} from "react-native";
 
 const HomeSpotlight = () => {
 
