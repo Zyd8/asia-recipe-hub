@@ -10,8 +10,14 @@ const RoomRecipe = () => {
     <ScrollView style={styles.container}>
       <Image source={recipe.image} style={styles.image} />
       <Text style={styles.title}>{recipe.title}</Text>
-      <Text style={styles.info}>Country of Origin: {recipe.originCountry}</Text>
-      <Text style={styles.info}>Cooking Time: {recipe.cookingTime}</Text>
+      <View style={styles.infoContainer}>
+        <Text style={styles.infoIcon}>🌎</Text>
+        <Text style={styles.info}>Country of Origin: {recipe.originCountry}</Text>
+      </View>
+      <View style={styles.infoContainer}>
+        <Text style={styles.infoIcon}>⏱️</Text>
+        <Text style={styles.info}>Cooking Time: {recipe.cookingTime}</Text>
+      </View>
       
       <Text style={styles.subTitle}>Ingredients:</Text>
       <View style={styles.ingredientsList}>
@@ -35,7 +41,7 @@ const RoomRecipe = () => {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    backgroundColor: "#D7D0C8",
+    backgroundColor: "#F7F4E7",
   },
   image: {
     width: 300,
@@ -44,17 +50,25 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: "bold",
     marginTop: 10,
     textAlign: "center",
   },
-  info: {
-    fontSize: 16,
+  infoContainer: {
+    flexDirection: "row",
+    alignItems: "center",
     marginTop: 5,
   },
+  infoIcon: {
+    fontSize: 16,
+    marginRight: 5,
+  },
+  info: {
+    fontSize: 16,
+  },
   subTitle: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: "bold",
     marginTop: 10,
   },
@@ -64,10 +78,6 @@ const styles = StyleSheet.create({
   ingredient: {
     fontSize: 16,
     marginLeft: 10,
-  },
-  procedure: {
-    fontSize: 16,
-    marginTop: 10,
   },
   procedureList: {
     marginTop: 5,
