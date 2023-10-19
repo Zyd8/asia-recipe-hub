@@ -10,7 +10,7 @@ const HomeHeader = ({ searchTerm, onSearch }) => {
 		<View style={styles.container}>
 			<TextInput
 				style={styles.textInput}
-				placeholder="Enter text here"
+				placeholder="Search for a recipe!"
 				value={searchTerm}
 				onChangeText={onSearch}
 			/>
