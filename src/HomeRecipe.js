@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, SafeAreaView } from "react-native";
+import { StyleSheet, SafeAreaView } from "react-native";
 
 import HomeHeader from "./HomeHeader";
 import HomeSpotlight from "./HomeSpotlight";

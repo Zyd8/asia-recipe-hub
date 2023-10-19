@@ -16,6 +16,7 @@ const data = [
 	ingredients: ["Egg"],
 	cookingTime: "5 minutes",
 	originCountry: "Philippines",
+	procedure: "",
 	},
 
   	{ 
@@ -25,6 +26,7 @@ const data = [
 	ingredients: ["Egg"],
 	cookingTime: "5 minutes",
 	originCountry: "Philippines",
+	procedure: "",
 	},
 
   	{ 
@@ -34,6 +36,7 @@ const data = [
 	ingredients: ["Egg"],
 	cookingTime: "5 minutes",
 	originCountry: "Philippines",
+	procedure: "",
 	},
 
 	// 1st Country
@@ -44,6 +47,7 @@ const data = [
 	ingredients: ["Egg"],
 	cookingTime: "5 minutes",
 	originCountry: "Philippines",
+	procedure: "",
 	},
 
 	{
@@ -53,6 +57,7 @@ const data = [
 	ingredients: ["Egg"],
 	cookingTime: "5 minutes",
 	originCountry: "Philippines",
+	procedure: "",
 	},
 
 	{
@@ -62,6 +67,7 @@ const data = [
 	ingredients: ["Egg"],
 	cookingTime: "5 minutes",
 	originCountry: "Philippines",
+	procedure: "",
 	},
 
 	// 3rd Country
@@ -72,6 +78,7 @@ const data = [
 	ingredients: ["Egg"],
 	cookingTime: "5 minutes",
 	originCountry: "Philippines",
+	procedure: "",
 	},
 
 	{
@@ -81,6 +88,7 @@ const data = [
 	ingredients: ["Egg"],
 	cookingTime: "5 minutes",
 	originCountry: "Philippines",
+	procedure: "",
 	},
 
 	{
@@ -90,6 +98,7 @@ const data = [
 	ingredients: ["Egg"],
 	cookingTime: "5 minutes",
 	originCountry: "Philippines",
+	procedure: "",
 	},
 ];
 
