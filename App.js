@@ -9,7 +9,7 @@ export default function App() {
   	return (
     	<SafeAreaView style={styles.container}>
       		<HomeHeader/>
-			
+			<HomeSpotlight/>
       		<RecipeList/>
     	</SafeAreaView>
   	);

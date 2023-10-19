@@ -5,7 +5,7 @@ const HomeHeader = () => {
     const [inputValue, setInputValue] = useState('');
     
     const handleFilterPress = () => {
-        console.log("Pressed");
+        
     };
 
     return (
@@ -27,10 +27,13 @@ const HomeHeader = () => {
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: "white",
+		backgroundColor: "#AB8476",
 		flexDirection: 'row', 
 		alignItems: 'center', 
-		padding: 10,
+		paddingTop: 30,
+		paddingBottom: 10,
+		paddingLeft: 5,
+		paddingRight: 5,
 	},
 	textInput: {
 		backgroundColor: "lightgrey",

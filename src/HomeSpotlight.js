@@ -18,11 +18,14 @@ const HomeSpotlight = () => {
                 <Image source={item.image} style={styles.image} />
               </View>
             )}
-            sliderWidth={300}
-            itemWidth={300}
+            sliderWidth={500}
+            itemWidth={250}
             layout="default"
-            firstItem={0}
+            firstItem={1}
             useScrollView={false}
+            autoplay={true}            
+            autoplayInterval={3000}
+            loop={true}
           />
         </View>
     );      
@@ -31,13 +34,20 @@ const HomeSpotlight = () => {
 const styles = StyleSheet.create({
     carouselContainer: {
       overflow: 'hidden',
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      padding: 5,
     },
     slide: {
       backgroundColor: 'transparent',
     },
     image: {
-      width: 100,
-      height: 100,
+      width: 250,
+      height: 200,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      borderRadius: 10
     },
 });
 
