@@ -14,12 +14,8 @@ export default function App() {
 		<NavigationContainer>
 			<Stack.Navigator initialRouteName="Home">
 				<Stack.Screen name="Home" component={HomeRecipe} />
-				<Stack.Screen name="Room" component={RoomRecipe} />
+				<Stack.Screen name="Recipe" component={RoomRecipe} />
 			</Stack.Navigator>
 		</NavigationContainer>
   	);
 }
-//<HomeSpotlight/>
-
-// Margin = internally occupies space
-// Padding = externally occupies space

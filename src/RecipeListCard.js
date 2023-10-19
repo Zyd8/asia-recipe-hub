@@ -6,18 +6,23 @@ const RecipeListCard = ({ recipe }) => {
 	const navigation = useNavigation();
 
 	const handleRecipeCardPress = () => {
-		console.log("Pressed Card " + recipe.id);
-		navigation.navigate("Room", { recipe }); 
+		navigation.navigate("Recipe", { recipe }); 
   	}
 
   	return (
 		<View style={styles.cardContainer}>
-			<TouchableOpacity onPress={handleRecipeCardPress}>
-				<Image source={{ uri: recipe.image }} style={styles.image} />
-					<View style={styles.textContainer}>
-					<Text style={styles.recipeTitle}>{recipe.title}</Text>
+		<TouchableOpacity onPress={handleRecipeCardPress}>
+			<Image source={recipe.image} style={styles.image} resizeMode="cover" />
+			<View style={styles.textContainer}>
+			<View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+				<Text style={styles.recipeTitle}>{recipe.title}</Text>
+				<Text>Cooking Time: {recipe.cookingTime}</Text>
+			</View>
+				<View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
+					<Text>Origin: {recipe.originCountry}</Text>
 				</View>
-			</TouchableOpacity>
+			</View>
+		</TouchableOpacity>
 		</View>
   	);
 };
@@ -41,7 +46,8 @@ const styles = StyleSheet.create({
 		elevation: 5, 
   	},
   	image: {
-    	height: 220,
+		width: 350,
+		height: 190,
   	},
 	textContainer: {
 		padding: 10,

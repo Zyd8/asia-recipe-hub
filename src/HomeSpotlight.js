@@ -4,9 +4,15 @@ import { View, Image, StyleSheet} from "react-native";
 const HomeSpotlight = () => {
 
     const data = [
-        { image: {uri: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.E8FbKUj-Pghveev110jaBAHaE8%26pid%3DApi&f=1&ipt=8adf59a47af06819b9b5ced6b1fbe6668d8480fcd1d1f3bb678b0ba3637e5bd8&ipo=images'}},
-        { image: {uri: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.E8FbKUj-Pghveev110jaBAHaE8%26pid%3DApi&f=1&ipt=8adf59a47af06819b9b5ced6b1fbe6668d8480fcd1d1f3bb678b0ba3637e5bd8&ipo=images'}},
-        { image: {uri: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.E8FbKUj-Pghveev110jaBAHaE8%26pid%3DApi&f=1&ipt=8adf59a47af06819b9b5ced6b1fbe6668d8480fcd1d1f3bb678b0ba3637e5bd8&ipo=images'}},
+        { image: require('./img/sushi.jpeg')},
+        { image: require('./img/soba.jpeg')},
+        { image: require('./img/sashimi.jpeg')},
+        { image: require('./img/dumpling.jpeg')},
+        { image: require('./img/kungpaochicken.jpeg')},
+        { image: require('./img/pekingduck.jpeg')},
+        { image: require('./img/sisig.jpeg')},
+        { image: require('./img/sinigang.jpeg')},
+        { image: require('./img/adobo.jpeg')},
     ];
 
     return (
@@ -21,7 +27,7 @@ const HomeSpotlight = () => {
             sliderWidth={500}
             itemWidth={250}
             layout="default"
-            firstItem={1}
+            firstItem={5}
             useScrollView={false}
             autoplay={true}            
             autoplayInterval={3000}
@@ -38,6 +44,7 @@ const styles = StyleSheet.create({
       justifyContent: "center",
       alignItems: "center",
       padding: 5,
+      margin: 5,
     },
     slide: {
       backgroundColor: 'transparent',
