@@ -1,22 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import {SafeAreaView, StyleSheet} from "react-native";
 
-import HomeUI from "./src/components/HomeUI";
+import RecipeList from "./src/RecipeList";
+import HomeHeader from "./src/HomeHeader";
+import HomeSpotlight from "./src/HomeSpotlight";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      // This will load the HomeUI page
-      <HomeUI/>
-    </View>
-  );
+  	return (
+    	<SafeAreaView style={styles.container}>
+      		<HomeHeader/>
+			
+      		<RecipeList/>
+    	</SafeAreaView>
+  	);
 }
+//<HomeSpotlight/>
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  	container: {
+    	backgroundColor: "#FFE1A8",
+  	},
 });
+
+// Margin = internally occupies space
+// Padding = externally occupies space
