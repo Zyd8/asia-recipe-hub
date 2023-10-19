@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { FlatList, View, StyleSheet} from "react-native";
 
 import RecipeListCard from "./RecipeListCard";
+import HomeHeader from "./HomeHeader";
 
 const data = [
 
@@ -137,21 +138,37 @@ const data = [
 ];
 
 const RecipeList = () => {
+	const [searchTerm, setSearchTerm] = useState('');
+	const [filteredRecipes, setFilteredRecipes] = useState(data);
+  
+	const handleSearch = (text) => {
+	  setSearchTerm(text);
+	  const filtered = data.filter(recipe =>
+		recipe.title.toLowerCase().includes(text.toLowerCase())
+	  );
+	  setFilteredRecipes(filtered);
+	};
+  
 	return (
-		<View style={styles.container}>
-			<FlatList 
-				data={data}
-				keyExtractor={(item) => item.id}
-				renderItem={({ item }) => <RecipeListCard recipe={item} />}
-			/>
-		</View>
-  	);
-};
-
-const styles = StyleSheet.create({ 
-  	container: {
-		marginBottom: 550,
-  	},
-});
-
-export default RecipeList;
+	  <View style={styles.container}>
+		<HomeHeader
+		  searchTerm={searchTerm}
+		  onSearch={handleSearch} 
+		  onSearchPress={() => handleSearch(searchTerm)} 
+		/>
+		<FlatList
+		  data={filteredRecipes}
+		  keyExtractor={(item) => item.id}
+		  renderItem={({ item }) => <RecipeListCard recipe={item} />}
+		/>
+	  </View>
+	);
+  };
+  
+  	const styles = StyleSheet.create({
+		container: {
+			marginBottom: 550,
+		},
+  	});
+  
+  export default RecipeList;

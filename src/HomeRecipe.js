@@ -8,7 +8,6 @@ import RecipeList from "./RecipeList";
 const Home = () => {
   return (
     <SafeAreaView style={styles.container}>
-        <HomeHeader />
         <HomeSpotlight />
         <RecipeList />
     </SafeAreaView>
@@ -18,6 +17,7 @@ const Home = () => {
 const styles = StyleSheet.create({
     container: {
       backgroundColor: "#FFE1A8",
+      paddingBottom: 10,
     },
 });
 

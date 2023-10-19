@@ -1,53 +1,46 @@
-import React, { useState } from 'react';
-import { View, Image, StyleSheet, TextInput, TouchableOpacity} from "react-native";
+import React from 'react';
+import { View, TextInput, TouchableOpacity, StyleSheet, Image} from 'react-native';
 
-const HomeHeader = () => {
-    const [inputValue, setInputValue] = useState('');
-    
-    const handleFilterPress = () => {
-        
-    };
+const HomeHeader = ({ searchTerm, onSearch }) => {
 
-    return (
-        <View>
-            <View style={styles.container}>
-                <TextInput
-                    style={styles.textInput}
-                    placeholder="Enter text here"
-                    value={inputValue}
-                    onChangeText={(text) => setInputValue(text)}
-                />
-                <TouchableOpacity onPress={handleFilterPress}>
-                    <Image source={require("./img/filter.png")} style={styles.icon} />
-                </TouchableOpacity>
-            </View>
-        </View>
-    )
-}
+	const handleFilterPress = () => {
+		console.log("Pressed")
+	}
+  	return (
+		<View style={styles.container}>
+			<TextInput
+				style={styles.textInput}
+				placeholder="Enter text here"
+				value={searchTerm}
+				onChangeText={onSearch}
+			/>
+			<TouchableOpacity onPress={handleFilterPress}>
+				<Image source={require("./img/filter.png")} style={styles.icon} />
+			</TouchableOpacity>
+		</View>
+	);
+};
 
 const styles = StyleSheet.create({
-	container: {
-		backgroundColor: "#AB8476",
-		flexDirection: 'row', 
-		alignItems: 'center', 
+  	container: {
+		flexDirection: 'row',
+		alignItems: 'center',
 		paddingTop: 10,
 		paddingBottom: 10,
 		paddingLeft: 5,
 		paddingRight: 5,
+		backgroundColor: "#AB8476",
+		marginBottom: 10,
 	},
-	textInput: {
-		backgroundColor: "white",
+  	textInput: {
+		backgroundColor: 'white',
 		borderRadius: 10,
 		flex: 1,
 		height: 40,
-		borderColor: "black",
+		borderColor: 'black',
 		padding: 10,
-		shadowOffset: {
-			width: 0,
-			height: 2,
-		},
-		marginRight: 10
-	},
+		marginRight: 10,
+  	},
 	filterButton: {
 		backgroundColor: "white",
 		borderRadius: 10,
