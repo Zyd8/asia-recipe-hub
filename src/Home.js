@@ -1,12 +1,12 @@
 import React from "react";
-import { StyleSheet, SafeAreaView, ImageBackground} from "react-native";
+import { StyleSheet, SafeAreaView} from "react-native";
 
-import RecipeList from "./RecipeList";
+import RecipeLoader from "./RecipeLoader";
 
-const HomeRecipe = () => {
+const Home = () => {
   return (
     <SafeAreaView style={styles.container}>     
-        <RecipeList />
+        <RecipeLoader/>
     </SafeAreaView>
   );
 };
@@ -18,4 +18,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeRecipe;
+export default Home;

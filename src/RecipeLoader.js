@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { FlatList, View, StyleSheet } from "react-native";
+import { FlatList, View, StyleSheet, KeyboardAvoidingView} from "react-native";
 import Carousel from "react-native-snap-carousel";
 
-import RecipeListCard from "./RecipeListCard";
-import HomeHeader from "./HomeHeader";
-import HomeSpotlight from "./HomeSpotlight";
+import Cards from "./Cards";
+import Filter from "./Filter";
+import Spotlight from "./Spotlight";
 
 const DATA = [
   // 1st Country
@@ -188,7 +188,7 @@ const DATA = [
   },
 ];
 
-const RecipeList = () => {
+const RecipeLoader = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredRecipes, setFilteredRecipes] = useState(DATA);
 
@@ -201,10 +201,13 @@ const RecipeList = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={"height"} 
+    >
       <Carousel
         data={DATA}
-        renderItem={({ item }) => <HomeSpotlight recipe={item} />}
+        renderItem={({ item }) => <Spotlight recipe={item} />}
         sliderWidth={380}
         itemWidth={250}
         layout="default"
@@ -215,14 +218,14 @@ const RecipeList = () => {
         loop={true}
       />
 
-      <HomeHeader searchTerm={searchTerm} onSearch={handleSearch} />
+      <Filter searchTerm={searchTerm} onSearch={handleSearch} />
 
       <FlatList
         data={filteredRecipes}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <RecipeListCard recipe={item} />}
+        renderItem={({ item }) => <Cards recipe={item} />}
       />
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -232,4 +235,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RecipeList;
+export default RecipeLoader;

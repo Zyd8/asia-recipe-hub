@@ -7,7 +7,7 @@ import {
   Image,
 } from "react-native";
 
-const HomeHeader = ({ searchTerm, onSearch }) => {
+const Filter = ({ searchTerm, onSearch }) => {
   const handleFilterPress = () => {
     console.log("Pressed");
   };
@@ -60,4 +60,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeHeader;
+export default Filter;

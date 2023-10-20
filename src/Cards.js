@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-const RecipeListCard = ({ recipe }) => {
+const Cards = ({ recipe }) => {
   const navigation = useNavigation();
 
   const handleRecipeCardPress = () => {
@@ -60,4 +60,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RecipeListCard;
+export default Cards;

@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Image, StyleSheet } from "react-native";
 
-const HomeSpotlight = ({ recipe }) => {
+const Spotlight = ({ recipe }) => {
   return (
     <View>
       <View style={styles.carouselContainer}>
@@ -25,13 +25,11 @@ const styles = StyleSheet.create({
   image: {
     width: 250,
     height: 200,
-    marginLeft: "auto",
-    marginRight: "auto",
-    borderRadius: 10,
+    borderRadius: 20,
   },
   slide: {
     backgroundColor: "transparent",
   },
 });
 
-export default HomeSpotlight;
+export default Spotlight;
