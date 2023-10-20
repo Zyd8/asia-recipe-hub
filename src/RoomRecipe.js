@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
-import { useRoute } from '@react-navigation/native';
+import { useRoute } from "@react-navigation/native";
 
 const RoomRecipe = () => {
   const route = useRoute();
@@ -12,17 +12,21 @@ const RoomRecipe = () => {
       <Text style={styles.title}>{recipe.title}</Text>
       <View style={styles.infoContainer}>
         <Text style={styles.infoIcon}>🌎</Text>
-        <Text style={styles.info}>Country of Origin: {recipe.originCountry}</Text>
+        <Text style={styles.info}>
+          Country of Origin: {recipe.originCountry}
+        </Text>
       </View>
       <View style={styles.infoContainer}>
         <Text style={styles.infoIcon}>⏱️</Text>
         <Text style={styles.info}>Cooking Time: {recipe.cookingTime}</Text>
       </View>
-      
+
       <Text style={styles.subTitle}>Ingredients:</Text>
       <View style={styles.ingredientsList}>
         {recipe.ingredients.map((ingredient, index) => (
-          <Text key={index} style={styles.ingredient}>{ingredient}</Text>
+          <Text key={index} style={styles.ingredient}>
+            {ingredient}
+          </Text>
         ))}
       </View>
 
@@ -85,7 +89,7 @@ const styles = StyleSheet.create({
   procedureStep: {
     fontSize: 16,
     marginLeft: 10,
-  },  
+  },
 });
 
 export default RoomRecipe;

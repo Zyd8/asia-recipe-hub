@@ -8,17 +8,17 @@ import RecipeList from "./RecipeList";
 const Home = () => {
   return (
     <SafeAreaView style={styles.container}>
-        <HomeSpotlight />
-        <RecipeList />
+      <HomeSpotlight />
+      <RecipeList />
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-    container: {
-      backgroundColor: "#FFE1A8",
-      paddingBottom: 10,
-    },
+  container: {
+    backgroundColor: "#FFE1A8",
+    paddingBottom: 10,
+  },
 });
 
 export default Home;
