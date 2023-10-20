@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { FlatList, View, StyleSheet } from "react-native";
+import Carousel from "react-native-snap-carousel";
 
 import RecipeListCard from "./RecipeListCard";
 import HomeHeader from "./HomeHeader";
+import HomeSpotlight from "./HomeSpotlight";
 
 const DATA = [
   // 1st Country
@@ -200,10 +202,21 @@ const RecipeList = () => {
 
   return (
     <View style={styles.container}>
-      <HomeHeader
-        searchTerm={searchTerm}
-        onSearch={handleSearch}
+      <Carousel
+        data={DATA}
+        renderItem={({ item }) => <HomeSpotlight recipe={item} />}
+        sliderWidth={380}
+        itemWidth={250}
+        layout="default"
+        firstItem={0}
+        useScrollView={false}
+        autoplay={true}
+        autoplayInterval={3000}
+        loop={true}
       />
+
+      <HomeHeader searchTerm={searchTerm} onSearch={handleSearch} />
+
       <FlatList
         data={filteredRecipes}
         keyExtractor={(item) => item.id}

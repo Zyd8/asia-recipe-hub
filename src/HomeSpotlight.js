@@ -1,37 +1,14 @@
-import Carousel from "react-native-snap-carousel";
+import React from "react";
 import { View, Image, StyleSheet } from "react-native";
 
-const HomeSpotlight = () => {
-  const DATA = [
-    { image: require("./img/sushi.jpeg") },
-    { image: require("./img/soba.jpeg") },
-    { image: require("./img/sashimi.jpeg") },
-    { image: require("./img/dumpling.jpeg") },
-    { image: require("./img/kungpaochicken.jpeg") },
-    { image: require("./img/pekingduck.jpeg") },
-    { image: require("./img/sisig.jpeg") },
-    { image: require("./img/sinigang.jpeg") },
-    { image: require("./img/adobo.jpeg") },
-  ];
-
+const HomeSpotlight = ({ recipe }) => {
   return (
-    <View style={styles.carouselContainer}>
-      <Carousel
-        data={DATA}
-        renderItem={({ item }) => (
-          <View style={styles.slide}>
-            <Image source={item.image} style={styles.image} />
+    <View>
+      <View style={styles.carouselContainer}>
+        <View style={styles.slide}>
+          <Image source={recipe.image} style={styles.image} />
           </View>
-        )}
-        sliderWidth={500}
-        itemWidth={250}
-        layout="default"
-        firstItem={0}
-        useScrollView={false}
-        autoplay={true}
-        autoplayInterval={3000}
-        loop={true}
-      />
+      </View>
     </View>
   );
 };
@@ -45,15 +22,15 @@ const styles = StyleSheet.create({
     padding: 5,
     margin: 5,
   },
-  slide: {
-    backgroundColor: "transparent",
-  },
   image: {
     width: 250,
     height: 200,
     marginLeft: "auto",
     marginRight: "auto",
     borderRadius: 10,
+  },
+  slide: {
+    backgroundColor: "transparent",
   },
 });
 
