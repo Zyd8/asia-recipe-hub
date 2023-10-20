@@ -7,7 +7,7 @@ const Spotlight = ({ recipe }) => {
       <View style={styles.carouselContainer}>
         <View style={styles.slide}>
           <Image source={recipe.image} style={styles.image} />
-          </View>
+        </View>
       </View>
     </View>
   );

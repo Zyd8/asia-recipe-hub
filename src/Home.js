@@ -1,12 +1,12 @@
 import React from "react";
-import { StyleSheet, SafeAreaView} from "react-native";
+import { StyleSheet, SafeAreaView } from "react-native";
 
 import RecipeLoader from "./RecipeLoader";
 
 const Home = () => {
   return (
-    <SafeAreaView style={styles.container}>     
-        <RecipeLoader/>
+    <SafeAreaView style={styles.container}>
+      <RecipeLoader />
     </SafeAreaView>
   );
 };
