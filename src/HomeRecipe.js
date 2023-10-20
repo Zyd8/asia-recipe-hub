@@ -1,15 +1,14 @@
 import React from "react";
-import { StyleSheet, SafeAreaView } from "react-native";
+import { StyleSheet, SafeAreaView, ImageBackground} from "react-native";
 
-import HomeHeader from "./HomeHeader";
 import HomeSpotlight from "./HomeSpotlight";
 import RecipeList from "./RecipeList";
 
-const Home = () => {
+const HomeRecipe = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <HomeSpotlight />
-      <RecipeList />
+    <SafeAreaView style={styles.container}>     
+        <HomeSpotlight />
+        <RecipeList />
     </SafeAreaView>
   );
 };
@@ -21,4 +20,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default HomeRecipe;

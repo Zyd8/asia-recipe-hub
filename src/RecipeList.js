@@ -203,7 +203,6 @@ const RecipeList = () => {
       <HomeHeader
         searchTerm={searchTerm}
         onSearch={handleSearch}
-        onSearchPress={() => handleSearch(searchTerm)}
       />
       <FlatList
         data={filteredRecipes}
