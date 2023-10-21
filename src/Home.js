@@ -2,11 +2,13 @@ import React from "react";
 import { StyleSheet, SafeAreaView } from "react-native";
 
 import RecipeLoader from "./RecipeLoader";
+import Spotlight from "./Spotlight";
 
 const Home = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <RecipeLoader />
+      <Spotlight/>
+      <RecipeLoader/>
     </SafeAreaView>
   );
 };

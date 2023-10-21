@@ -1,14 +1,27 @@
 import React from "react";
 import { View, Image, StyleSheet } from "react-native";
+import Carousel from "react-native-snap-carousel";
+import { DATA } from "./data";
 
-const Spotlight = ({ recipe }) => {
+const Spotlight = () => {
   return (
-    <View>
-      <View style={styles.carouselContainer}>
-        <View style={styles.slide}>
-          <Image source={recipe.image} style={styles.image} />
-        </View>
-      </View>
+    <View style={styles.carouselContainer}>
+      <Carousel
+        data={DATA}
+        renderItem={({ item }) => (
+          <View style={styles.slide}>
+            <Image source={item.image} style={styles.image} />
+          </View>
+        )}
+        sliderWidth={500}
+        itemWidth={250}
+        layout="default"
+        firstItem={5}
+        useScrollView={false}
+        autoplay={true}            
+        autoplayInterval={3000}
+        loop={true}
+      />
     </View>
   );
 };
