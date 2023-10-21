@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 350,
-    height: 190,
+    height: 180,
   },
   textContainer: {
     padding: 10,

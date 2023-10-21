@@ -39,7 +39,7 @@ const RecipeLoader = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 560,
+    marginBottom: 580,
   },
 });
 
