@@ -7,7 +7,10 @@ const RoomRecipe = () => {
   const { recipe } = route.params;
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView 
+      style={styles.container}
+      contentContainerStyle={{ paddingBottom: 100 }}
+    >
       <Image source={recipe.image} style={styles.image} />
       <Text style={styles.title}>{recipe.title}</Text>
       <View style={styles.infoContainer}>
@@ -44,6 +47,7 @@ const RoomRecipe = () => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 10,
     backgroundColor: "#F7F4E7",
   },

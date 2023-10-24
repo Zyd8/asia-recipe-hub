@@ -22,6 +22,7 @@ export const DATA = [
         "2. Add onion and garlic to the skillet; cook until softened and brown, about 6 minutes.",
         "3. Pour in soy sauce and vinegar and season with garlic powder, black pepper, and bay leaf",
         "4. Return chicken to pan, increase heat to high, and bring to a boil. Reduce heat to medium-low, cover, and simmer until chicken is tender and cooked through, 35 to 40 minutes.",
+        "5. feeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
       ],
     },
   

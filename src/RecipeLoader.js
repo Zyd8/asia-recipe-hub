@@ -22,25 +22,19 @@ const RecipeLoader = () => {
 
   return (
     <KeyboardAvoidingView 
-      style={styles.container} 
       behavior={"height"}
     >
-
+      
     <Filter searchTerm={searchTerm} onSearch={handleSearch} />
 
     <FlatList
       data={filteredRecipes}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => <Cards recipe={item} />}
+      contentContainerStyle={{ paddingBottom: 580 }}
     />
     </KeyboardAvoidingView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    marginBottom: 580,
-  },
-});
 
 export default RecipeLoader;
