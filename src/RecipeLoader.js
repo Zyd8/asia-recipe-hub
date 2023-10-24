@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { FlatList, StyleSheet, KeyboardAvoidingView } from "react-native";
 
-
 import Cards from "./Cards";
 import Filter from "./Filter";
-import Spotlight from "./Spotlight";
 
 import { DATA } from "./data";
 
@@ -39,7 +37,7 @@ const RecipeLoader = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 600,
+    marginBottom: 580,
   }
 })
 

@@ -2,6 +2,7 @@ export const DATA = [
     // 1st Country
     {
       id: "1",
+      videoId: "wwapBsT0oc8",
       title: "Adobo",
       image: require("./img/adobo.jpeg"),
       ingredients: [
@@ -22,12 +23,12 @@ export const DATA = [
         "2. Add onion and garlic to the skillet; cook until softened and brown, about 6 minutes.",
         "3. Pour in soy sauce and vinegar and season with garlic powder, black pepper, and bay leaf",
         "4. Return chicken to pan, increase heat to high, and bring to a boil. Reduce heat to medium-low, cover, and simmer until chicken is tender and cooked through, 35 to 40 minutes.",
-        "5. feeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
       ],
     },
   
     {
       id: "2",
+      videoId: "CzBF1IhIn1M",
       title: "Sinigang",
       image: require("./img/sinigang.jpeg"),
       ingredients: [
@@ -48,6 +49,7 @@ export const DATA = [
     },
     {
       id: "3",
+      videoId: "M-Gso2xK9t8",
       title: "Sisig",
       image: require("./img/sisig.jpeg"),
       ingredients: [
@@ -67,6 +69,7 @@ export const DATA = [
     },
     {
       id: "4",
+      videoId: "KnJ3abXjgME",
       title: "Peking Duck",
       image: require("./img/pekingduck.jpeg"),
       ingredients: [
@@ -88,6 +91,7 @@ export const DATA = [
     },
     {
       id: "5",
+      videoId: "mQufT9XjimY",
       title: "Kung Pao Chicken",
       image: require("./img/kungpaochicken.jpeg"),
       ingredients: [
@@ -107,6 +111,7 @@ export const DATA = [
     },
     {
       id: "6",
+      videoId: "34Ax3BmGtY0",
       title: "Dumplings",
       image: require("./img/dumpling.jpeg"),
       ingredients: [
@@ -126,6 +131,7 @@ export const DATA = [
     },
     {
       id: "7",
+      videoId: "TgoN7bsTFmU",
       title: "Sashimi",
       image: require("./img/sashimi.jpeg"),
       ingredients: [
@@ -143,6 +149,7 @@ export const DATA = [
     },
     {
       id: "8",
+      videoId: "l8BCDXkwHwI",
       title: "Soba",
       image: require("./img/soba.jpeg"),
       ingredients: [
@@ -163,6 +170,7 @@ export const DATA = [
     },
     {
       id: "9",
+      videoId: "joweUxpHaqc",
       title: "Sushi",
       image: require("./img/sushi.jpeg"),
       ingredients: [

@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
 import { useRoute } from "@react-navigation/native";
+import YoutubePlayer from "react-native-youtube-iframe";
 
 const RoomRecipe = () => {
   const route = useRoute();
@@ -11,7 +12,12 @@ const RoomRecipe = () => {
       style={styles.container}
       contentContainerStyle={{ paddingBottom: 100 }}
     >
-      <Image source={recipe.image} style={styles.image} />
+
+      <YoutubePlayer
+        height={200}
+        play={true}
+        videoId={recipe.videoId}
+      />
       <Text style={styles.title}>{recipe.title}</Text>
       <View style={styles.infoContainer}>
         <Text style={styles.infoIcon}>🌎</Text>
