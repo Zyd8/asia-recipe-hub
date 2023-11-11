@@ -1,29 +1,27 @@
 import React, { useState } from "react";
 import { View, TextInput, TouchableOpacity, StyleSheet, Image, Text, Button } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import Modal from "react-native-modal";
 import SelectDropdown from 'react-native-select-dropdown';
 
 const Filter = ({ searchTerm, onSearch, onFilterChange }) => {
-  const navigation = useNavigation();
 
-  const country = ["Philippines", "China", "Japan"];
+  const country = ["All", "Philippines", "China", "Japan"];
 
   const [isModalVisible, setModalVisible] = useState(false);
-  const [selectedCountry, setSelectedCountry] = useState(""); // Added state variable
+  const [selectedCountry, setSelectedCountry] = useState("");
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
 
   const handleCountrySelect = (selectedItem) => {
-    setSelectedCountry(selectedItem); // Update the state with the selected country
+    setSelectedCountry(selectedItem); 
   };
 
   const handleFilterPress = () => {
-    // Pass the selected country back to the parent component
-    onFilterChange(selectedCountry);
-    toggleModal(); // Close the modal
+    const actualCountry = selectedCountry === "All" ? "" : selectedCountry;
+    onFilterChange(actualCountry);
+    toggleModal(); 
   };
 
   return (
@@ -48,7 +46,7 @@ const Filter = ({ searchTerm, onSearch, onFilterChange }) => {
             <Text style={styles.header2}>Choose a Country: </Text>
             <SelectDropdown
               data={country}
-              onSelect={handleCountrySelect} // Use the function to update state
+              onSelect={handleCountrySelect}
               buttonTextAfterSelection={(selectedItem, index) => {
                 return selectedItem;
               }}

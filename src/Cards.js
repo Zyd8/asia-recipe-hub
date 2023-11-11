@@ -10,9 +10,7 @@ const Cards = ({ recipe }) => {
   };
 
   const handleHeartIconPress = () => {
-    // Handle the press event for the heart icon
     console.log("Heart icon clicked!");
-    // Add your logic here
   };
 
   return (
@@ -75,7 +73,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: 45,
     height: 40,
-    borderRadius: 35 / 2,
+    borderRadius: 30 / 2,
     backgroundColor: 'black',
     opacity: 0.50,
   },

@@ -18,19 +18,36 @@ const RecipeLoader = () => {
     setFilteredRecipes(filtered);
   };
 
+  const handleFilterChange = (selectedCountry) => {
+    console.log("Selected Country:", selectedCountry);
+
+    if (!selectedCountry) {
+      setFilteredRecipes(DATA);
+      return;
+    }
+
+    const filtered = DATA.filter((recipe) =>
+      recipe.originCountry.toLowerCase() === selectedCountry.toLowerCase()
+    );
+    setFilteredRecipes(filtered);
+  };
+
   return (
     <KeyboardAvoidingView 
       behavior={"height"}
       style={styles.container}
     >
-      
-    <Filter searchTerm={searchTerm} onSearch={handleSearch} />
+      <Filter
+        searchTerm={searchTerm}
+        onSearch={handleSearch}
+        onFilterChange={handleFilterChange} 
+      />
 
-    <FlatList
-      data={filteredRecipes}
-      keyExtractor={(item) => item.id}
-      renderItem={({ item }) => <Cards recipe={item} />}
-    />
+      <FlatList
+        data={filteredRecipes}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <Cards recipe={item} />}
+      />
     </KeyboardAvoidingView>
   );
 };
@@ -39,6 +56,6 @@ const styles = StyleSheet.create({
   container: {
     marginBottom: 580,
   }
-})
+});
 
 export default RecipeLoader;
