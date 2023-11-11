@@ -1,11 +1,17 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
+import { View, Text, StyleSheet, ScrollView, useWindowDimensions} from "react-native";
 import { useRoute } from "@react-navigation/native";
 import YoutubePlayer from "react-native-youtube-iframe";
+
 
 const RoomRecipe = () => {
   const route = useRoute();
   const { recipe } = route.params;
+  const {height, width} = useWindowDimensions();
+  console.log("height",height*0.25)
+  console.log("width", width)
+
+
 
   return (
     <ScrollView 
@@ -14,7 +20,8 @@ const RoomRecipe = () => {
     >
 
       <YoutubePlayer
-        height={200}
+        height={width*0.5}
+        //width={width}  
         play={true}
         videoId={recipe.videoId}
       />
