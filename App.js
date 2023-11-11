@@ -18,3 +18,10 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+// Favorite (heart) feature -- Zyd
+// Filter feature -- Rhenz Lloveras
+// Landscape view in reciperoom -- Ocli
+// Add more recipes and asian countries -- Memps
+// Aesthethic recipe room (relevant background) -- Bryan, Matthew
+// more filter and category tags -- tulungannnnnn

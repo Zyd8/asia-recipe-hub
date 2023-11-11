@@ -9,23 +9,29 @@ const Cards = ({ recipe }) => {
     navigation.navigate("Recipe", { recipe });
   };
 
+  const handleHeartIconPress = () => {
+    // Handle the press event for the heart icon
+    console.log("Heart icon clicked!");
+    // Add your logic here
+  };
+
   return (
-    <View style={styles.cardContainer}>
-      <TouchableOpacity onPress={handleRecipeCardPress}>
-        <Image source={recipe.image} style={styles.image} resizeMode="cover" />
-        <View style={styles.textContainer}>
-          <View
-            style={{ flexDirection: "row", justifyContent: "space-between" }}
-          >
-            <Text style={styles.recipeTitle}>{recipe.title}</Text>
-            <Text>Cooking Time: {recipe.cookingTime}</Text>
-          </View>
-          <View style={{ flexDirection: "row", justifyContent: "flex-end" }}>
-            <Text>Origin: {recipe.originCountry}</Text>
-          </View>
-        </View>
+    <TouchableOpacity onPress={handleRecipeCardPress} style={styles.cardContainer}>
+      <Image source={recipe.image} style={styles.image} />
+      <TouchableOpacity onPress={handleHeartIconPress} style={styles.heartContainer}>
+        <View style={styles.heartShadow} />
+        <Image source={require("./img/heart.png")} style={styles.heart} />
       </TouchableOpacity>
-    </View>
+      <View style={styles.textContainer}>
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <Text style={styles.recipeTitle}>{recipe.title}</Text>
+          <Text>Cooking Time: {recipe.cookingTime}</Text>
+        </View>
+        <View style={{ flexDirection: "row", justifyContent: "flex-end" }}>
+          <Text>Origin: {recipe.originCountry}</Text>
+        </View>
+      </View>
+    </TouchableOpacity>
   );
 };
 
@@ -57,6 +63,26 @@ const styles = StyleSheet.create({
   recipeTitle: {
     fontSize: 18,
     fontWeight: "bold",
+  },
+  heartContainer: {
+    position: 'absolute',
+    right: 7,
+    top: 7,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  heartShadow: {
+    position: 'absolute',
+    width: 45,
+    height: 40,
+    borderRadius: 35 / 2,
+    backgroundColor: 'black',
+    opacity: 0.50,
+  },
+  heart: {
+    height: 35,
+    width: 35,
+    zIndex: 1,
   },
 });
 
