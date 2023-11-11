@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const Cards = ({ recipe }) => {
@@ -13,8 +13,10 @@ const Cards = ({ recipe }) => {
     console.log("Heart icon clicked!");
   };
 
+  const isLandscape = Dimensions.get("window").width > Dimensions.get("window").height;
+
   return (
-    <TouchableOpacity onPress={handleRecipeCardPress} style={styles.cardContainer}>
+    <TouchableOpacity onPress={handleRecipeCardPress} style={[styles.cardContainer, isLandscape && styles.landscapeCard]}>
       <Image source={recipe.image} style={styles.image} />
       <TouchableOpacity onPress={handleHeartIconPress} style={styles.heartContainer}>
         <View style={styles.heartShadow} />
@@ -50,10 +52,15 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 3.84,
     elevation: 5,
+    width: "90%", 
+  },
+  landscapeCard: {
+    width: "45%",
   },
   image: {
-    width: 350,
+    width: "100%",
     height: 180,
+    borderRadius: 8,
   },
   textContainer: {
     padding: 10,

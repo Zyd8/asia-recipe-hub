@@ -11,8 +11,6 @@ const RoomRecipe = () => {
   console.log("height",height*0.25)
   console.log("width", width)
 
-
-
   return (
     <ScrollView 
       style={styles.container}
@@ -20,7 +18,6 @@ const RoomRecipe = () => {
     >
       <YoutubePlayer
         height={width*0.5}
-        //width={width}  
         play={true}
         videoId={recipe.videoId}
       />
