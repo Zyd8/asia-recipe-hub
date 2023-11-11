@@ -17,7 +17,7 @@ const RoomRecipe = () => {
       contentContainerStyle={{ paddingBottom: 100 }}
     >
       <YoutubePlayer
-        height={width*0.5}
+        height={width*0.6}
         play={true}
         videoId={recipe.videoId}
       />
