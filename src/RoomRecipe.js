@@ -12,7 +12,6 @@ const RoomRecipe = () => {
       style={styles.container}
       contentContainerStyle={{ paddingBottom: 100 }}
     >
-
       <YoutubePlayer
         height={200}
         play={true}
