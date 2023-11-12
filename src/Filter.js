@@ -1,28 +1,46 @@
-import React, { useState } from "react";
-import { View, TextInput, TouchableOpacity, StyleSheet, Image, Text, Button } from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, TextInput, TouchableOpacity, StyleSheet, Image, Text, Button, Dimensions } from "react-native";
 import Modal from "react-native-modal";
 import SelectDropdown from 'react-native-select-dropdown';
 
 const Filter = ({ searchTerm, onSearch, onFilterChange }) => {
-
   const country = ["All", "Philippines", "China", "Japan"];
 
   const [isModalVisible, setModalVisible] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState("");
+  const [modalWidth, setModalWidth] = useState(Dimensions.get("window").width * 0.9);
+  const [modalHeight, setModalHeight] = useState(Dimensions.get("window").height * 0.6);
+
+  useEffect(() => {
+    const updateModalSize = () => {
+      const width = Dimensions.get("window").width * 0.9;
+      const height = Dimensions.get("window").height * 0.6;
+      setModalWidth(width);
+      setModalHeight(height);
+    };
+
+    Dimensions.addEventListener("change", updateModalSize);
+
+    return () => {
+      Dimensions.removeEventListener("change", updateModalSize);
+    };
+  }, []);
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
 
   const handleCountrySelect = (selectedItem) => {
-    setSelectedCountry(selectedItem); 
+    setSelectedCountry(selectedItem);
   };
 
   const handleFilterPress = () => {
     const actualCountry = selectedCountry === "All" ? "" : selectedCountry;
     onFilterChange(actualCountry);
-    toggleModal(); 
+    toggleModal();
   };
+
+  const isLandscape = Dimensions.get("window").width > Dimensions.get("window").height;
 
   return (
     <View style={styles.container}>
@@ -35,11 +53,13 @@ const Filter = ({ searchTerm, onSearch, onFilterChange }) => {
       <TouchableOpacity onPress={toggleModal}>
         <Image source={require("./img/filter.png")} style={styles.icon} />
       </TouchableOpacity>
-      <Modal isVisible={isModalVisible} animationType="fade" transparent={true}>
-        <TouchableOpacity
-          style={styles.pressOut}
-          activeOpacity={1}
-          onPressOut={toggleModal}
+      {isLandscape ? (
+        <Modal
+          isVisible={isModalVisible}
+          animationType="fade"
+          transparent={true}
+          style={{ height: modalHeight, width: modalWidth, justifyContent: 'center', alignItems: 'center'}}    
+          onBackdropPress={toggleModal}
         >
           <View style={styles.modal}>
             <Text style={styles.header}>Filter By:</Text>
@@ -56,15 +76,39 @@ const Filter = ({ searchTerm, onSearch, onFilterChange }) => {
             />
 
             <View style={styles.filler}></View>
-            <Button onPress={handleFilterPress} style={styles.confirms} title="Confirm Changes">
-            </Button>
+            <Button onPress={handleFilterPress} style={styles.confirms} title="Confirm Changes" />
           </View>
-        </TouchableOpacity>
-      </Modal>
+        </Modal>
+      ) : (
+        <Modal
+          isVisible={isModalVisible}
+          animationType="fade"
+          transparent={true}
+          style={{ height: modalHeight, width: modalWidth }}
+          onBackdropPress={toggleModal}
+        >
+          <View style={styles.modal}>
+            <Text style={styles.header}>Filter By:</Text>
+            <Text style={styles.header2}>Choose a Country: </Text>
+            <SelectDropdown
+              data={country}
+              onSelect={handleCountrySelect}
+              buttonTextAfterSelection={(selectedItem, index) => {
+                return selectedItem;
+              }}
+              rowTextForSelection={(item, index) => {
+                return item;
+              }}
+            />
+
+            <View style={styles.filler}></View>
+            <Button onPress={handleFilterPress} style={styles.confirms} title="Confirm Changes" />
+          </View>
+        </Modal>
+      )}
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -99,43 +143,33 @@ const styles = StyleSheet.create({
     tintColor: "white",
   },
   modal: {
-		width: 350,
-		height: 300,
-		padding: 10,
-		backgroundColor: "white",
-		borderRadius: 30,
-	},
-	header: {
-		fontSize:30,
-		fontWeight: 'bold',
-		textAlign: 'center',
-		marginBottom:30,
-	},
-	headers2: {
-		flexDirection:'row',
-		flexWrap:'wrap',
-		marginRight: 40,
-		fontSize:20,
-	},
-	header2: {
-		fontSize: 20,
-		marginTop:20,
-		marginBottom: 30,
-	},
-	filler: {
-		margin: 20,
-	},
-	confirms: {
-		
-	},
-	pressOut: {
-		width:'200%',
-		height:'80%',
-		marginTop: -20,
-		marginLeft: -20,
-		paddingTop: 150,
-		padding: 20,
-	},
+    width: 350,
+    height: 300,
+    padding: 10,
+    backgroundColor: "white",
+    borderRadius: 30,
+  },
+  header: {
+    fontSize: 30,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginBottom: 30,
+  },
+  headers2: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    marginRight: 40,
+    fontSize: 20,
+  },
+  header2: {
+    fontSize: 20,
+    marginTop: 20,
+    marginBottom: 30,
+  },
+  filler: {
+    margin: 20,
+  },
+  confirms: {},
 });
 
 export default Filter;
