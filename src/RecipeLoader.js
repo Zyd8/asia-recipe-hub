@@ -48,7 +48,7 @@ const RecipeLoader = () => {
   };
 
   return (
-    <KeyboardAvoidingView behavior={"height"}>
+    <KeyboardAvoidingView>
       <Filter
         searchTerm={searchTerm}
         onSearch={handleSearch}
