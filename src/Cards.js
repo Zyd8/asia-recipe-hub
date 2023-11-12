@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const Cards = ({ recipe }) => {
   const navigation = useNavigation();
+  const [heart, setHeart] = useState(require("./img/heart.png"));
 
   const handleRecipeCardPress = () => {
     navigation.navigate("Recipe", { recipe });
   };
 
   const handleHeartIconPress = () => {
-    console.log("Heart icon clicked!");
+    setHeart(prevHeart => prevHeart === require("./img/heart.png") ? require("./img/heartclicked.png") : require("./img/heart.png"))
   };
 
   const isLandscape = Dimensions.get("window").width > Dimensions.get("window").height;
@@ -20,7 +21,7 @@ const Cards = ({ recipe }) => {
       <Image source={recipe.image} style={styles.image} />
       <TouchableOpacity onPress={handleHeartIconPress} style={styles.heartContainer}>
         <View style={styles.heartShadow} />
-        <Image source={require("./img/heart.png")} style={styles.heart} />
+        <Image source={heart} style={styles.heart} />
       </TouchableOpacity>
       <View style={styles.textContainer}>
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 30 / 2,
     backgroundColor: 'black',
-    opacity: 0.50,
+    opacity: 0.05,
   },
   heart: {
     height: 35,
