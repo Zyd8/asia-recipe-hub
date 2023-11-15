@@ -4,24 +4,25 @@ import { useNavigation } from "@react-navigation/native";
 
 const Cards = ({ recipe }) => {
   const navigation = useNavigation();
-  const [heart, setHeart] = useState(require("./img/heart.png"));
+  const [recipeData, setData] = useState(recipe);
 
   const handleRecipeCardPress = () => {
     navigation.navigate("Recipe", { recipe });
   };
 
-  const handleHeartIconPress = () => {
-    setHeart(prevHeart => prevHeart === require("./img/heart.png") ? require("./img/heartclicked.png") : require("./img/heart.png"))
-  };
-
   const isLandscape = Dimensions.get("window").width > Dimensions.get("window").height;
+  const updateItem = () => {
+    recipe.favorited = !recipe.favorited
+    console.log(recipeData.title,recipeData.favorited)
+    setData(recipeData)
+  }
 
   return (
     <TouchableOpacity onPress={handleRecipeCardPress} style={[styles.cardContainer, isLandscape && styles.landscapeCard]}>
       <Image source={recipe.image} style={styles.image} />
-      <TouchableOpacity onPress={handleHeartIconPress} style={styles.heartContainer}>
+      <TouchableOpacity onPress={updateItem} style={styles.heartContainer}>
         <View style={styles.heartShadow} />
-        <Image source={heart} style={styles.heart} />
+        <Image source= {recipeData.favorited ? require("./img/heartclicked.png") : require("./img/heart.png")} style={styles.heart} />      
       </TouchableOpacity>
       <View style={styles.textContainer}>
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
@@ -91,5 +92,4 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
 });
-
 export default Cards;

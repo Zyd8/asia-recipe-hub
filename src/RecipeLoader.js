@@ -63,6 +63,7 @@ const RecipeLoader = () => {
           keyExtractor={(item) => "_" + item.id}
           renderItem={({ item }) => <Cards recipe={item} />}
           numColumns={2}
+          extraData={Cards}
         />
       ) : (
         <FlatList
@@ -71,6 +72,7 @@ const RecipeLoader = () => {
           data={filteredRecipes}
           keyExtractor={(item) => "#" + item.id}
           renderItem={({ item }) => <Cards recipe={item} />}
+          extraData={DATA.favorited}
         />
       )}
     </KeyboardAvoidingView>
