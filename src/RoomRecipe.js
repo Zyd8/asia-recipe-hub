@@ -7,9 +7,7 @@ import YoutubePlayer from "react-native-youtube-iframe";
 const RoomRecipe = () => {
   const route = useRoute();
   const { recipe } = route.params;
-  const {height, width} = useWindowDimensions();
-  console.log("height",height*0.25)
-  console.log("width", width)
+  const {width} = useWindowDimensions();
 
   return (
     <ScrollView 
