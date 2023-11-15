@@ -4,25 +4,27 @@ import { useNavigation } from "@react-navigation/native";
 
 const Cards = ({ recipe }) => {
   const navigation = useNavigation();
-  const [recipeData, setData] = useState(recipe);
+  const isLandscape = Dimensions.get("window").width > Dimensions.get("window").height;
 
   const handleRecipeCardPress = () => {
     navigation.navigate("Recipe", { recipe });
   };
 
-  const isLandscape = Dimensions.get("window").width > Dimensions.get("window").height;
-  const updateItem = () => {
-    recipe.favorited = !recipe.favorited
-    console.log(recipeData.title,recipeData.favorited)
-    setData(recipeData)
-  }
+  const handleHeartIconPress = () => {
+    setHeart((prevHeart) =>
+      prevHeart === require("./img/heart.png")
+        ? require("./img/heartclicked.png")
+        : require("./img/heart.png")
+    );
+  };
+  const [heart, setHeart] = useState(require("./img/heart.png"));
 
   return (
     <TouchableOpacity onPress={handleRecipeCardPress} style={[styles.cardContainer, isLandscape && styles.landscapeCard]}>
       <Image source={recipe.image} style={styles.image} />
-      <TouchableOpacity onPress={updateItem} style={styles.heartContainer}>
+      <TouchableOpacity onPress={handleHeartIconPress} style={styles.heartContainer}>
         <View style={styles.heartShadow} />
-        <Image source= {recipeData.favorited ? require("./img/heartclicked.png") : require("./img/heart.png")} style={styles.heart} />      
+        <Image source={heart} style={styles.heart} />    
       </TouchableOpacity>
       <View style={styles.textContainer}>
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>

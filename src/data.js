@@ -24,7 +24,6 @@ export const DATA = [
         "3. Pour in soy sauce and vinegar and season with garlic powder, black pepper, and bay leaf",
         "4. Return chicken to pan, increase heat to high, and bring to a boil. Reduce heat to medium-low, cover, and simmer until chicken is tender and cooked through, 35 to 40 minutes.",
       ],
-      favorited: true
     },
   
     {
@@ -47,7 +46,6 @@ export const DATA = [
         "2. Add pork ribs and cook until tender.",
         "3. Add vegetables and sinigang mix. Simmer until vegetables are cooked.",
       ],
-      favorited: false
     },
     {
       id: "3",
@@ -68,7 +66,6 @@ export const DATA = [
         "2. Chop pig ears into small pieces.",
         "3. Sauté chopped pig ears with onions, chili pepper, soy sauce, and calamansi juice.",
       ],
-      favorited: false
     },
     {
       id: "4",
@@ -91,7 +88,6 @@ export const DATA = [
         "3. Roast the duck, basting with maltose syrup until crispy.",
         "4. Serve with pancakes and sliced cucumber.",
       ],
-      favorited: false
     },
     {
       id: "5",
@@ -112,7 +108,6 @@ export const DATA = [
         "3. In the same wok, stir-fry garlic and dried chili peppers.",
         "4. Add peanuts and cooked chicken. Stir-fry with sauce.",
       ],
-      favorited: false
     },
     {
       id: "6",
@@ -133,7 +128,6 @@ export const DATA = [
         "2. Place a spoonful of filling on a wonton wrapper. Seal and shape the dumplings.",
         "3. Boil or steam dumplings until cooked. Serve with dipping sauce.",
       ],
-      favorited: false
     },
     {
       id: "7",
@@ -152,7 +146,6 @@ export const DATA = [
         "1. Slice fresh raw fish into thin pieces.",
         "2. Serve with soy sauce, wasabi, and pickled ginger.",
       ],
-      favorited: false
     },
     {
       id: "8",
@@ -174,7 +167,6 @@ export const DATA = [
         "2. Serve with a dipping sauce made from soy sauce, mirin, and dashi broth.",
         "3. Garnish with scallions and wasabi.",
       ],
-      favorited: false
     },
     {
       id: "9",
@@ -194,6 +186,5 @@ export const DATA = [
         "1. Prepare sushi rice and let it cool.",
         "2. Lay out a sheet of nori, add a layer of rice, and top with fish, cucumber, and avocado",
       ],
-      favorited: false
     },
   ];
