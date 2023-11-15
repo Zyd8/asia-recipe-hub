@@ -20,7 +20,7 @@ const Cards = ({ recipe }) => {
   const [heart, setHeart] = useState(require("./img/heart.png"));
 
   return (
-    <TouchableOpacity onPress={handleRecipeCardPress} style={[styles.cardContainer, isLandscape && styles.landscapeCard]}>
+    <TouchableOpacity onPress={handleRecipeCardPress} style={styles.cardContainer}>
       <Image source={recipe.image} style={styles.image} />
       <TouchableOpacity onPress={handleHeartIconPress} style={styles.heartContainer}>
         <View style={styles.heartShadow} />
@@ -58,8 +58,11 @@ const styles = StyleSheet.create({
     elevation: 5,
     width: "90%", 
   },
+  portraitCard: {
+    marginBottom: 580
+  },
   landscapeCard: {
-    width: "45%",
+    marginBottom: 180
   },
   image: {
     width: "100%",
