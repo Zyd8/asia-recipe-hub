@@ -1,10 +1,24 @@
-import React, { useState } from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions } from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions, useWindowDimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const Cards = ({ recipe }) => {
   const navigation = useNavigation();
-  const isLandscape = Dimensions.get("window").width > Dimensions.get("window").height;
+
+  const { height, width } = useWindowDimensions();
+  const [isPortrait, setIsPortrait] = useState(height > width);
+  useEffect(() => {
+    const handleOrientationChange = () => {
+      const { height, width } = Dimensions.get("window");
+      setIsPortrait(height > width);
+    };
+
+    Dimensions.addEventListener("change", handleOrientationChange);
+
+    return () => {
+      Dimensions.removeEventListener("change", handleOrientationChange);
+    };
+  }, []);
 
   const handleRecipeCardPress = () => {
     navigation.navigate("Recipe", { recipe });
@@ -20,7 +34,7 @@ const Cards = ({ recipe }) => {
   const [heart, setHeart] = useState(require("./img/heart.png"));
 
   return (
-    <TouchableOpacity onPress={handleRecipeCardPress} style={styles.cardContainer}>
+    <TouchableOpacity onPress={handleRecipeCardPress} style={[styles.cardContainer, isPortrait ? styles.portraitCard : styles.landscapeCard]}>
       <Image source={recipe.image} style={styles.image} />
       <TouchableOpacity onPress={handleHeartIconPress} style={styles.heartContainer}>
         <View style={styles.heartShadow} />
@@ -59,14 +73,14 @@ const styles = StyleSheet.create({
     width: "90%", 
   },
   portraitCard: {
-    marginBottom: 580
+    height: 150
   },
   landscapeCard: {
-    marginBottom: 180
+    height: 150
   },
   image: {
     width: "100%",
-    height: 180,
+    height: 100,
     borderRadius: 8,
   },
   textContainer: {
