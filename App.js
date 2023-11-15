@@ -35,7 +35,17 @@ export default function App() {
             ),
           }}
         />
-        <Stack.Screen name="Recipe" component={RoomRecipe} />
+        <Stack.Screen 
+          name="Recipe" 
+          component={RoomRecipe}
+          options={{
+            headerRight: () => (
+              <TouchableOpacity onPress={handleMeasurementPopUp} style={{ marginRight: 15 }}>
+                <Image source={require("./src/img/measurementcup.png")} style={{ height: 30, width: 30 }} />
+              </TouchableOpacity>
+            ),
+          }}
+          />
       </Stack.Navigator>
 
       <MeasurementPopUp isVisible={isMeasurementPopUpVisible} onClose={handleCloseMeasurementPopUp} />
