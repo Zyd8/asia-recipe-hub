@@ -16,7 +16,6 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFE1A8",
-    paddingBottom: 10,
   },
 
 });

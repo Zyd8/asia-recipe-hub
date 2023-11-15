@@ -68,10 +68,10 @@ const RecipeLoader = () => {
 
 const styles = StyleSheet.create({
   portraitCard: {
-    marginBottom: 580
+    marginBottom: 550
   },
   landscapeCard: {
-    marginBottom: 180
+    marginBottom: 150
   },
 });
 

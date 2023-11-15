@@ -50,8 +50,7 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: 5,
-    margin: 5,
+
   },
   image: {
     width: 250,
