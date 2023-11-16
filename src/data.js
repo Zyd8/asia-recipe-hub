@@ -16,7 +16,7 @@ export const DATA = [
         "2 teaspoons black pepper",
         "1 bay leaf",
       ],
-      cookingTime: "1 hour, 5 minutes",
+      cookingTime: 65,
       originCountry: "Philippines",
       procedure: [
         "1. Heat vegetable oil in a large skillet over medium-high heat. Cook chicken pieces until golden brown, 2 to 3 minutes per side. Transfer chicken to a plate and set aside.",
@@ -39,7 +39,7 @@ export const DATA = [
         "4 cups water",
         "1 packet sinigang mix",
       ],
-      cookingTime: "1 hour",
+      cookingTime: 60,
       originCountry: "Philippines",
       procedure: [
         "1. In a large pot, add water and bring to a boil.",
@@ -59,7 +59,7 @@ export const DATA = [
         "2 tbsp soy sauce",
         "2 tbsp calamansi juice",
       ],
-      cookingTime: "45 minutes",
+      cookingTime: 45,
       originCountry: "Philippines",
       procedure: [
         "1. Boil pig ears until tender, then grill until crispy.",
@@ -80,7 +80,7 @@ export const DATA = [
         "Cucumber",
         "Pancakes",
       ],
-      cookingTime: "2 hours",
+      cookingTime: 120,
       originCountry: "China",
       procedure: [
         "1. Clean and season the duck with 5-spice powder and salt.",
@@ -100,7 +100,7 @@ export const DATA = [
         "3 cloves garlic",
         "3 dried red chili peppers",
       ],
-      cookingTime: "30 minutes",
+      cookingTime: 30,
       originCountry: "China",
       procedure: [
         "1. Cut chicken into small cubes and marinate with soy sauce and cornstarch.",
@@ -121,7 +121,7 @@ export const DATA = [
         "Ginger",
         "Wonton wrappers",
       ],
-      cookingTime: "45 minutes",
+      cookingTime: 45,
       originCountry: "China",
       procedure: [
         "1. Mix ground pork, finely chopped cabbage, green onions, and ginger.",
@@ -140,7 +140,7 @@ export const DATA = [
         "Wasabi",
         "Pickled ginger",
       ],
-      cookingTime: "15 minutes",
+      cookingTime: 15,
       originCountry: "Japan",
       procedure: [
         "1. Slice fresh raw fish into thin pieces.",
@@ -160,7 +160,7 @@ export const DATA = [
         "Scallions",
         "Wasabi",
       ],
-      cookingTime: "20 minutes",
+      cookingTime: 20,
       originCountry: "Japan",
       procedure: [
         "1. Cook soba noodles until al dente, then rinse with cold water.",
@@ -180,7 +180,7 @@ export const DATA = [
         "Cucumber",
         "Avocado",
       ],
-      cookingTime: "30 minutes",
+      cookingTime: 30,
       originCountry: "Japan",
       procedure: [
         "1. Prepare sushi rice and let it cool.",

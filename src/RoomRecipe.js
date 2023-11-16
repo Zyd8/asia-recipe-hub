@@ -28,7 +28,7 @@ const RoomRecipe = () => {
       </View>
       <View style={styles.infoContainer}>
         <Text style={styles.infoIcon}>⏱️</Text>
-        <Text style={styles.info}>Cooking Time: {recipe.cookingTime}</Text>
+        <Text style={styles.info}>Cooking Time: {recipe.cookingTime} minutes</Text>
       </View>
 
       <Text style={styles.subTitle}>Ingredients:</Text>

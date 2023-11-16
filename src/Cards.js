@@ -43,7 +43,7 @@ const Cards = ({ recipe }) => {
       <View style={styles.textContainer}>
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           <Text style={styles.recipeTitle}>{recipe.title}</Text>
-          <Text>Cooking Time: {recipe.cookingTime}</Text>
+          <Text>Cooking Time: {recipe.cookingTime} minutes</Text>
         </View>
         <View style={{ flexDirection: "row", justifyContent: "flex-end" }}>
           <Text>Origin: {recipe.originCountry}</Text>
