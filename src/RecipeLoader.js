@@ -19,10 +19,6 @@ const RecipeLoader = () => {
     };
 
     Dimensions.addEventListener("change", handleOrientationChange);
-
-    return () => {
-      Dimensions.removeEventListener("change", handleOrientationChange);
-    };
   }, []);
 
   const handleSearch = (text) => {
@@ -60,6 +56,7 @@ const RecipeLoader = () => {
         style={isPortrait ? styles.portraitCard : styles.landscapeCard}
         data={filteredRecipes}
         keyExtractor={(item) => item.id}
+        horizontal={!isPortrait}
         renderItem={({ item }) => <Cards recipe={item} />}
       />
     </KeyboardAvoidingView>
@@ -71,7 +68,7 @@ const styles = StyleSheet.create({
     marginBottom: 550
   },
   landscapeCard: {
-    marginBottom: 150
+    height: "100%",
   },
 });
 

@@ -14,10 +14,6 @@ const Cards = ({ recipe }) => {
     };
 
     Dimensions.addEventListener("change", handleOrientationChange);
-
-    return () => {
-      Dimensions.removeEventListener("change", handleOrientationChange);
-    };
   }, []);
 
   const handleRecipeCardPress = () => {
@@ -34,7 +30,7 @@ const Cards = ({ recipe }) => {
   const [heart, setHeart] = useState(require("./img/heart.png"));
 
   return (
-    <TouchableOpacity onPress={handleRecipeCardPress} style={[styles.cardContainer, isPortrait ? styles.portraitCard : styles.landscapeCard]}>
+    <TouchableOpacity onPress={handleRecipeCardPress} style={isPortrait ? [styles.portraitCardContainer, styles.portraitCard] : [styles.landscapeCardContainer, styles.landscapeCard]}>
       <Image source={recipe.image} style={isPortrait? styles.imagePortrait : styles.imageLandscape} />
       <TouchableOpacity onPress={handleHeartIconPress} style={styles.heartContainer}>
         <View style={styles.heartShadow} />
@@ -54,7 +50,25 @@ const Cards = ({ recipe }) => {
 };
 
 const styles = StyleSheet.create({
-  cardContainer: {
+  portraitCardContainer: {
+    borderRadius: 20,
+    overflow: "hidden",
+    marginBottom: 20,
+    marginLeft: 20,
+    marginRight: 20,
+    backgroundColor: "#fff",
+    borderColor: "#ccc",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 3.84,
+    elevation: 5,
+    width: "90%", 
+  },
+  landscapeCardContainer: {
     borderRadius: 20,
     overflow: "hidden",
     marginBottom: 20,
@@ -76,7 +90,8 @@ const styles = StyleSheet.create({
     height: 150
   },
   landscapeCard: {
-    height: 100
+    height: 170,
+    width: 300
   },
   imagePortrait: {
     width: "100%",
@@ -85,7 +100,7 @@ const styles = StyleSheet.create({
   },
   imageLandscape: {
     width: "100%",
-    height: 50,
+    height: 100,
     borderRadius: 8,
   },
   textContainer: {
