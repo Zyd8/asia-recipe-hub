@@ -20,10 +20,6 @@ const Filter = ({ searchTerm, onSearch, onFilterChange }) => {
     };
 
     Dimensions.addEventListener("change", updateModalSize);
-
-    return () => {
-      Dimensions.removeEventListener("change", updateModalSize);
-    };
   }, []);
 
   const toggleModal = () => {

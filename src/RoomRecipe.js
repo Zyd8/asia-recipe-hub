@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet, ScrollView, useWindowDimensions, FlatList } from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, Text, StyleSheet, ScrollView, useWindowDimensions, Dimensions, FlatList } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import YoutubePlayer from "react-native-youtube-iframe";
@@ -7,7 +7,17 @@ import YoutubePlayer from "react-native-youtube-iframe";
 const RoomRecipe = () => {
   const route = useRoute();
   const { recipe } = route.params;
-  const { width } = useWindowDimensions();
+
+  const { height, width } = useWindowDimensions();
+  const [isPortrait, setIsPortrait] = useState(height > width);
+  useEffect(() => {
+    const handleOrientationChange = () => {
+      const { height, width } = Dimensions.get("window");
+      setIsPortrait(height > width);
+    };
+
+    Dimensions.addEventListener("change", handleOrientationChange);
+  }, []);
 
   const [checkedIngredients, setCheckedIngredients] = useState(
     Array(recipe.ingredients.length).fill(false)
@@ -68,7 +78,11 @@ const RoomRecipe = () => {
       style={styles.container}
       contentContainerStyle={{ paddingBottom: 100 }}
     >
-      <YoutubePlayer height={width * 0.6} play={true} videoId={recipe.videoId} />
+     <YoutubePlayer
+        height={isPortrait ? width * 0.6 : width * 0.3} // Adjust the height conditionally
+        play={true}
+        videoId={recipe.videoId}
+      />
         <ScrollView>
         <Text style={styles.title}>{recipe.title}</Text>
         <View style={styles.infoContainer}>
@@ -131,8 +145,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: "bold",
-    marginTop: 10,
+    marginVertical: 10,
     textAlign: "center",
+    backgroundColor: "#AB8476",
+    padding: 5,
   },
   infoContainer: {
     flexDirection: "row",
@@ -147,9 +163,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   subTitle: {
+    backgroundColor: "#AB8476",
     fontSize: 24,
     fontWeight: "bold",
-    marginTop: 10,
+    marginVertical: 20,
+    padding: 5,
   },
   ingredientsList: {
     marginTop: 5,
@@ -159,11 +177,14 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   procedureList: {
-    marginTop: 5,
+    marginTop: 10,
   },
   procedureStep: {
+    textAlign: "justify",
     fontSize: 16,
-    marginLeft: 10,
+    marginLeft: 5,
+    marginRight: 50,
+    overflow: "visible",
   },
 });
 
