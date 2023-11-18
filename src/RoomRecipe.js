@@ -3,13 +3,25 @@ import { View, Text, StyleSheet, ScrollView, useWindowDimensions, Dimensions, Fl
 import { useRoute } from "@react-navigation/native";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import YoutubePlayer from "react-native-youtube-iframe";
+import { loadDarkModeState } from "./AsyncStorage";
 
 const RoomRecipe = () => {
   const route = useRoute();
   const { recipe } = route.params;
-
   const { height, width } = useWindowDimensions();
   const [isPortrait, setIsPortrait] = useState(height > width);
+  const [darkmode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const loadDarkMode = async () => {
+      const storedDarkMode = await loadDarkModeState();
+      setDarkMode(storedDarkMode);
+      console.log("loading darkmode state");
+    };
+
+    loadDarkMode();
+  }, []);
+
   useEffect(() => {
     const handleOrientationChange = () => {
       const { height, width } = Dimensions.get("window");
@@ -47,7 +59,7 @@ const RoomRecipe = () => {
       />
       <Text
         style={[
-          styles.ingredientText,
+          darkmode ? styles.darkIngredientText : styles.lightIngredientText,
           checkedIngredients[index] && styles.strikethrough,
         ]}
       >
@@ -64,7 +76,7 @@ const RoomRecipe = () => {
       />
       <Text
         style={[
-          styles.procedureStep,
+          darkmode ? styles.darkProcedureText : styles.lightProcedureText,
           checkedProcedure[index] && styles.strikethrough,
         ]}
       >
@@ -75,11 +87,11 @@ const RoomRecipe = () => {
 
   return (
     <View
-      style={styles.container}
+      style={darkmode ? styles.darkContainer : styles.lightContainer}
       contentContainerStyle={{ paddingBottom: 100 }}
     >
      <YoutubePlayer
-        height={isPortrait ? width * 0.6 : width * 0.3} // Adjust the height conditionally
+        height={isPortrait ? width * 0.6 : width * 0.3} 
         play={true}
         videoId={recipe.videoId}
       />
@@ -93,7 +105,6 @@ const RoomRecipe = () => {
         </View>
         <Text style={styles.subTitle}>Ingredients:</Text>
         <FlatList
-          style={styles.ingredientsText}
           data={recipe.ingredients}
           keyExtractor={(item, index) => index.toString()}
           renderItem={renderIngredientItem}
@@ -111,10 +122,15 @@ const RoomRecipe = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  lightContainer: {
     flex: 1,
     padding: 10,
-    backgroundColor: "#F7F4E7",
+    backgroundColor: "#FCF9F2",
+  },
+  darkContainer: {
+    flex: 1,
+    padding: 10,
+    backgroundColor: "#323233",
   },
   ingredientContainer: {
     flexDirection: 'row', 
@@ -203,8 +219,23 @@ const styles = StyleSheet.create({
     padding: 5,
     borderRadius: 10,
   },
-  ingredientText: {
-    fontSize: 18,
+  lightIngredientText: {
+    fontSize: 20,
+  },
+  lightProcedureText: {
+    fontSize: 20,
+    textAlign: "justify",
+    marginRight: 50
+  },
+  darkIngredientText: {
+    fontSize: 20,
+    color: "white",
+  },
+  darkProcedureText: {
+    fontSize: 20,
+    textAlign: "justify",
+    marginRight: 50,
+    color: "white",
   }
 });
 
