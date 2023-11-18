@@ -58,15 +58,16 @@ const styles = StyleSheet.create({
     marginRight: 20,
     backgroundColor: "#fff",
     borderColor: "#ccc",
-    shadowColor: "#000",
+    shadowColor: "white",
     shadowOffset: {
       width: 0,
       height: 2,
     },
     shadowOpacity: 0.5,
-    shadowRadius: 3.84,
-    elevation: 5,
+    shadowRadius: 5,
+    elevation: 10,
     width: "90%", 
+    backgroundColor: "#AB8476"
   },
   landscapeCardContainer: {
     borderRadius: 20,
@@ -76,15 +77,16 @@ const styles = StyleSheet.create({
     marginRight: 20,
     backgroundColor: "#fff",
     borderColor: "#ccc",
-    shadowColor: "#000",
+    shadowColor: "white",
     shadowOffset: {
       width: 0,
       height: 2,
     },
     shadowOpacity: 0.5,
-    shadowRadius: 3.84,
-    elevation: 5,
+    shadowRadius: 5,
+    elevation: 10,
     width: "90%", 
+    backgroundColor: "#AB8476"
   },
   portraitCard: {
     height: 170
@@ -110,6 +112,7 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     fontSize: 20,
     fontWeight: "bold",
+    color: "white"
   },
   heartContainer: {
     position: 'absolute',
