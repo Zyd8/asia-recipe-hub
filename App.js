@@ -58,6 +58,10 @@ const StackScreen = ({ darkmode, handleDarkMode }) => {
               <Image source={darkmode ? require("./src/img/measurementcupdark.png") : require("./src/img/measurementcuplight.png")} style={{ height: 25, width: 25, marginTop: 10 }} />
             </TouchableOpacity>
           ),
+          headerStyle: {
+            backgroundColor: darkmode ? 'black' : 'white', 
+          },
+          headerTintColor: darkmode ? 'white' : 'black', 
         }}
       />
     </Stack.Navigator>
