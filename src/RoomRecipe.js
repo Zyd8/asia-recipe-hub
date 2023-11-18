@@ -86,16 +86,14 @@ const RoomRecipe = () => {
         <ScrollView>
         <Text style={styles.title}>{recipe.title}</Text>
         <View style={styles.infoContainer}>
-          <Text style={styles.infoIcon}>🌎</Text>
-          <Text style={styles.info}>Country of Origin: {recipe.originCountry}</Text>
+          <Text style={styles.cookingTime}>⏱️ Cooking Time: {recipe.cookingTime} minutes</Text>
         </View>
         <View style={styles.infoContainer}>
-          <Text style={styles.infoIcon}>⏱️</Text>
-          <Text style={styles.info}>Cooking Time: {recipe.cookingTime} minutes</Text>
+          <Text style={styles.originCountry}>🌎 Country of Origin: {recipe.originCountry}</Text>
         </View>
-
         <Text style={styles.subTitle}>Ingredients:</Text>
         <FlatList
+          style={styles.ingredientsText}
           data={recipe.ingredients}
           keyExtractor={(item, index) => index.toString()}
           renderItem={renderIngredientItem}
@@ -143,6 +141,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   title: {
+    borderRadius: 8,
+    color: "white",
     fontSize: 28,
     fontWeight: "bold",
     marginVertical: 10,
@@ -163,6 +163,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   subTitle: {
+    paddingLeft: 10,
+    borderRadius: 10,
+    color: "white",
     backgroundColor: "#AB8476",
     fontSize: 24,
     fontWeight: "bold",
@@ -173,7 +176,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   ingredient: {
-    fontSize: 16,
+    fontSize: 18,
     marginLeft: 10,
   },
   procedureList: {
@@ -181,11 +184,28 @@ const styles = StyleSheet.create({
   },
   procedureStep: {
     textAlign: "justify",
-    fontSize: 16,
+    fontSize: 18,
     marginLeft: 5,
     marginRight: 50,
     overflow: "visible",
   },
+  cookingTime: {
+    margin: 2,
+    color: "white",
+    backgroundColor: "#BA0001",
+    padding: 5,
+    borderRadius: 10,
+  },
+  originCountry: {
+    margin: 2,
+    color: "white",
+    backgroundColor: "#22B14C",
+    padding: 5,
+    borderRadius: 10,
+  },
+  ingredientText: {
+    fontSize: 18,
+  }
 });
 
 export default RoomRecipe;

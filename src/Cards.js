@@ -39,10 +39,10 @@ const Cards = ({ recipe }) => {
       <View style={styles.textContainer}>
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           <Text style={styles.recipeTitle}>{recipe.title}</Text>
-          <Text>Cooking Time: {recipe.cookingTime} minutes</Text>
+          <Text style={styles.cookingTime}>⏱️ {recipe.cookingTime} minutes</Text>
         </View>
         <View style={{ flexDirection: "row", justifyContent: "flex-end" }}>
-          <Text>Origin: {recipe.originCountry}</Text>
+          <Text style={styles.originCountry}>🌎 {recipe.originCountry}</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     width: "90%", 
   },
   portraitCard: {
-    height: 150
+    height: 170
   },
   landscapeCard: {
     height: 170,
@@ -104,10 +104,11 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   textContainer: {
-    padding: 10,
+    padding: 5,
   },
   recipeTitle: {
-    fontSize: 18,
+    marginLeft: 5,
+    fontSize: 20,
     fontWeight: "bold",
   },
   heartContainer: {
@@ -130,5 +131,19 @@ const styles = StyleSheet.create({
     width: 35,
     zIndex: 1,
   },
+  cookingTime: {
+    margin: 2,
+    color: "white",
+    backgroundColor: "#BA0001",
+    padding: 5,
+    borderRadius: 10,
+  },
+  originCountry: {
+    margin: 2,
+    color: "white",
+    backgroundColor: "#22B14C",
+    padding: 5,
+    borderRadius: 10,
+  }
 });
 export default Cards;
