@@ -64,7 +64,16 @@ const StackScreen = ({ darkmode, handleDarkMode }) => {
   );
 };
 
-const TabScreen = ({ darkmode, handleDarkMode }) => (
+const TabScreen = ({ darkmode, handleDarkMode }) => {
+
+  const [forceRerender, setForceRerender] = useState(0);
+
+  const handleDarkModeButtonPress = () => {
+    handleDarkMode(); 
+    setForceRerender((prevForceRerender) => prevForceRerender + 1); 
+  };
+
+  return (
   <Tab.Navigator
     screenOptions={{
       headerShown: false,
@@ -87,7 +96,7 @@ const TabScreen = ({ darkmode, handleDarkMode }) => (
         ),
       }}
     >
-      {() => <StackScreen darkmode={darkmode} handleDarkMode={handleDarkMode} />}
+      {() => <StackScreen darkmode={darkmode} handleDarkMode={handleDarkModeButtonPress} forceRerender={forceRerender}/>}
     </Tab.Screen>
     <Tab.Screen
       name="Favorites"
@@ -102,7 +111,7 @@ const TabScreen = ({ darkmode, handleDarkMode }) => (
       }}
     />
   </Tab.Navigator>
-);
+)};
 
 export default function App() {
   const [darkmode, setDarkMode] = useState(false);
