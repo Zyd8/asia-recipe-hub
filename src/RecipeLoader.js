@@ -45,11 +45,11 @@ const RecipeLoader = () => {
 
   };
  
-  const recipeAscending = [...DATA].sort((a, b) => 
+  const recipeAscending = [...filteredRecipes].sort((a, b) => 
     a.title > b.title ? 1 : -1
   );
 
-  const recipeDescending = [...DATA].sort((a, b) => 
+  const recipeDescending = [...filteredRecipes].sort((a, b) => 
     a.title > b.title ? -1 : 1
   );
 
