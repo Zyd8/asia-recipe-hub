@@ -42,9 +42,9 @@ const StackScreen = ({ darkmode, handleDarkMode }) => {
               </View>
             ),
             headerStyle: {
-              backgroundColor: darkmode ? 'black' : 'white', // Set the header background color based on darkmode
+              backgroundColor: darkmode ? 'black' : 'white', 
             },
-            headerTintColor: darkmode ? 'white' : 'black', // Set the header text color based on darkmode
+            headerTintColor: darkmode ? 'white' : 'black', 
           }}
         >
           {() => <HomeScreen darkmode={darkmode} />}
