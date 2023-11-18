@@ -1,9 +1,10 @@
 import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SafeAreaView, StyleSheet, Image, TouchableOpacity, View} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { loadDarkModeState, saveDarkModeState } from "./src/AsyncStorage";
 
 import RoomRecipe from "./src/RoomRecipe";
 import HomeScreen from "./src/HomeScreen";
@@ -98,9 +99,24 @@ const TabScreen = ({ darkmode, handleDarkMode }) => (
 export default function App() {
   const [darkmode, setDarkMode] = useState(false);
 
+  useEffect(() => {
+    const loadDarkMode = async () => {
+      const storedDarkMode = await loadDarkModeState();
+      setDarkMode(storedDarkMode);
+      console.log("loading darkmode state");
+    };
+
+    loadDarkMode();
+  }, []);
+
   const handleDarkMode = () => {
     setDarkMode((prevDarkMode) => !prevDarkMode);
   };
+
+  useEffect(() => {
+    saveDarkModeState(darkmode);
+    console.log("saving darkmode state");
+  }, [darkmode]);
 
   return (
     <NavigationContainer>
