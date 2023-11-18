@@ -9,6 +9,7 @@ import { DATA } from "./data";
 const RecipeLoader = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredRecipes, setFilteredRecipes] = useState(DATA);
+  const [orderBy, setOrderBy] = useState("Ascending");
 
   const { height, width } = useWindowDimensions();
   const [isPortrait, setIsPortrait] = useState(height > width);
@@ -41,8 +42,22 @@ const RecipeLoader = () => {
       recipe.originCountry.toLowerCase() === selectedCountry.toLowerCase()
     );
     setFilteredRecipes(filtered);
-  };
 
+  };
+ 
+  const recipeAscending = [...DATA].sort((a, b) => 
+    a.title > b.title ? 1 : -1
+  );
+
+  const recipeDescending = [...DATA].sort((a, b) => 
+    a.title > b.title ? -1 : 1
+  );
+
+  const handleOrderBy = () => {
+    const filtered = orderBy === "Ascending" ? recipeDescending : recipeAscending;
+    setFilteredRecipes(filtered);
+    setOrderBy(orderBy === "Ascending" ? "Descending" : "Ascending");
+  };
   
   return (
     <KeyboardAvoidingView>
@@ -50,6 +65,7 @@ const RecipeLoader = () => {
         searchTerm={searchTerm}
         onSearch={handleSearch}
         onFilterChange={handleFilterChange} 
+        onOrderBy={handleOrderBy}
       />
 
       <FlatList
