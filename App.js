@@ -27,31 +27,35 @@ const StackScreen = ({ darkmode, handleDarkMode }) => {
 
   return (
     <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen
-        name="Home"
-        options={{
-          headerRight: () => (
-            <View style={{ flexDirection: "row" }}>
-              <TouchableOpacity onPress={handleDarkMode} style={{ height: 25, width: 25, marginRight: 20, marginTop: 2 }}>
-                <Image source={darkmode ? require("./src/img/darkmode.png") : require("./src/img/lightmode.png")} style={{ height: 30, width: 30, marginTop: 5 }} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={handleMeasurementPopUp} style={{ height: 25, width: 25, marginRight: 12, marginTop: 5 }}>
-                <Image source={require("./src/img/measurementcup.png")} style={{ height: 25, width: 25, marginTop: 5 }} />
-              </TouchableOpacity>
-              <MeasurementPopUp isVisible={isMeasurementPopUpVisible} onClose={handleCloseMeasurementPopUp} />
-            </View>
-          ),
-        }}
-      >
-        {() => <HomeScreen darkmode={darkmode} />}
-      </Stack.Screen>
+        <Stack.Screen
+          name="Home"
+          options={{
+            headerRight: () => (
+              <View style={{ flexDirection: "row" }}>
+                <TouchableOpacity onPress={handleDarkMode} style={{ height: 25, width: 25, marginRight: 20, marginTop: 2 }}>
+                  <Image source={darkmode ? require("./src/img/darkmodeicon.png") : require("./src/img/lightmodeicon.png")} style={{ height: 30, width: 30, marginTop: 5 }} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={handleMeasurementPopUp} style={{ height: 25, width: 25, marginRight: 12, marginTop: 5 }}>
+                  <Image source={darkmode ? require("./src/img/measurementcupdark.png") : require("./src/img/measurementcuplight.png")} style={{ height: 25, width: 25, marginTop: 5 }} />
+                </TouchableOpacity>
+                <MeasurementPopUp isVisible={isMeasurementPopUpVisible} onClose={handleCloseMeasurementPopUp} />
+              </View>
+            ),
+            headerStyle: {
+              backgroundColor: darkmode ? 'black' : 'white', // Set the header background color based on darkmode
+            },
+            headerTintColor: darkmode ? 'white' : 'black', // Set the header text color based on darkmode
+          }}
+        >
+          {() => <HomeScreen darkmode={darkmode} />}
+        </Stack.Screen>
       <Stack.Screen
         name="Recipe"
         component={RoomRecipe}
         options={{
           headerRight: () => (
             <TouchableOpacity onPress={handleMeasurementPopUp} style={{ marginRight: 15 }}>
-              <Image source={require("./src/img/measurementcup.png")} style={{ height: 25, width: 25, marginTop: 10 }} />
+              <Image source={darkmode ? require("./src/img/measurementcupdark.png") : require("./src/img/measurementcuplight.png")} style={{ height: 25, width: 25, marginTop: 10 }} />
             </TouchableOpacity>
           ),
         }}
@@ -66,6 +70,10 @@ const TabScreen = ({ darkmode, handleDarkMode }) => (
       headerShown: false,
       tabBarActiveTintColor: 'black',
       tabBarInactiveTintColor: 'gray',
+      tabBarStyle: {
+        backgroundColor: darkmode ? 'black' : 'white',
+      },
+      tabBarActiveTintColor: "#AB8476", 
     }}
   >
     <Tab.Screen
