@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions, useWindowDimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { loadFaveState, saveFaveState } from "./AsyncStorage";
 
 const Cards = ({ recipe }) => {
   const navigation = useNavigation();
@@ -20,21 +21,33 @@ const Cards = ({ recipe }) => {
     navigation.navigate("Recipe", { recipe });
   };
 
-  const handleHeartIconPress = () => {
-    setHeart((prevHeart) =>
-      prevHeart === require("./img/heart.png")
-        ? require("./img/heartclicked.png")
-        : require("./img/heart.png")
-    );
+  const [heart, setHeart] = useState(false);
+
+  const handleFaveState = () => {
+    setHeart((prevHeart) => !prevHeart);
   };
-  const [heart, setHeart] = useState(require("./img/heart.png"));
+
+  useEffect(() => {
+    const loadFave = async () => {
+      const storedFavState = await loadFaveState(recipe.id);
+      setHeart(storedFavState);
+      console.log("loading favorite state");
+    };
+
+    loadFave();
+  }, []);
+
+  useEffect(() => {
+    saveFaveState(recipe.id, heart);
+    console.log("saving favorite state");
+  }, [heart]);
 
   return (
     <TouchableOpacity onPress={handleRecipeCardPress} style={isPortrait ? [styles.portraitCardContainer, styles.portraitCard] : [styles.landscapeCardContainer, styles.landscapeCard]}>
       <Image source={recipe.image} style={isPortrait? styles.imagePortrait : styles.imageLandscape} />
-      <TouchableOpacity onPress={handleHeartIconPress} style={styles.heartContainer}>
+      <TouchableOpacity onPress={handleFaveState} style={styles.heartContainer}>
         <View style={styles.heartShadow} />
-        <Image source={heart} style={styles.heart} />    
+        <Image source={heart ? require("./img/heartclicked.png") : require("./img/heart.png")} style={styles.heart} />    
       </TouchableOpacity>
       <View style={styles.textContainer}>
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>

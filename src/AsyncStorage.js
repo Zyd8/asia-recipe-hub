@@ -19,3 +19,21 @@ export const loadDarkModeState = async () => {
     return false;
   }
 };
+
+export const saveFaveState = async (favoriteKey, value) => {
+  try {
+    await AsyncStorage.setItem(favoriteKey, JSON.stringify(value));
+    console.log("saved data")
+  } catch (e) {
+    console.error('Error saving favorite state to AsyncStorage:', e);
+  }
+};
+
+export const loadFaveState = async (favoriteKey) => {
+  try {
+    const storedFavState = await AsyncStorage.getItem(favoriteKey);
+    return storedFavState !== null ? JSON.parse(storedFavState) : false;
+  } catch (e) {
+    console.error('Error reading favorite state from AsyncStorage:', e);
+  }
+};
