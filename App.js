@@ -10,6 +10,7 @@ import RoomRecipe from "./src/RoomRecipe";
 import HomeScreen from "./src/HomeScreen";
 import MeasurementPopUp from "./src/MeasurementPopUp"; 
 import FavoriteScreen from "./src/FavoriteScreen";
+import Welcome from "./src/Welcome";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -119,6 +120,7 @@ const TabScreen = ({ darkmode, handleDarkMode }) => {
 
 export default function App() {
   const [darkmode, setDarkMode] = useState(false);
+  const [isWelcomeScreenVisible, setWelcomeScreenVisible] = useState(true);
 
   useEffect(() => {
     const loadDarkMode = async () => {
@@ -139,9 +141,18 @@ export default function App() {
     console.log("saving darkmode state");
   }, [darkmode]);
 
+  const handleCloseWelcomeScreen = () => {
+    setWelcomeScreenVisible(false);
+  };
+
+
   return (
     <NavigationContainer>
+      {isWelcomeScreenVisible && (
+        <Welcome isVisible={isWelcomeScreenVisible} onClose={handleCloseWelcomeScreen} />
+      )}
       <TabScreen darkmode={darkmode} handleDarkMode={handleDarkMode} />
     </NavigationContainer>
   );
-}
+};
+
