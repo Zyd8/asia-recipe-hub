@@ -59,10 +59,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   portraitCard: {
-    // Your styles for portrait mode
+    marginTop: 50,
+    width: "100%"
   },
   landscapeCard: {
-    // Your styles for landscape mode
+    //height: "100%",
+    margin: 90,
+    marginBottom: 100,
+    height: "300"
+    
   },
 });
 
