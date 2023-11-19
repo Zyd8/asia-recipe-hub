@@ -1,20 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { StyleSheet, SafeAreaView } from "react-native";
-import { loadDarkModeState } from "./AsyncStorage";
 import RecipeLoader from "./RecipeLoader";
 import Spotlight from "./Spotlight";
 
-const Home = ({ darkmode, forceRerender }) => {
-  useEffect(() => {
-    const loadDarkMode = async () => {
-      const storedDarkMode = await loadDarkModeState();
-      setDarkMode(storedDarkMode);
-      console.log("loading darkmode state");
-    };
-
-    loadDarkMode();
-  }, [forceRerender]);
-  
+const Home = ({ darkmode }) => {
   return (
     <SafeAreaView style={darkmode ? styles.darkContainer : styles.lightContainer}>
       <Spotlight />

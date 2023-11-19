@@ -1,6 +1,5 @@
-import { StatusBar } from "expo-status-bar";
 import { useState, useEffect } from "react";
-import { SafeAreaView, StyleSheet, Image, TouchableOpacity, View} from "react-native";
+import { Image, TouchableOpacity, View} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';

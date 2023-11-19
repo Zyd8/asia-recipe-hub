@@ -14,10 +14,6 @@ const Spotlight = () => {
     };
 
     Dimensions.addEventListener("change", handleOrientationChange);
-
-    return () => {
-      Dimensions.removeEventListener("change", handleOrientationChange);
-    };
   }, []);
 
   return (

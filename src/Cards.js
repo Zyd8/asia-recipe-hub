@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions, useWindowDimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { loadFaveState, saveFaveState } from "./AsyncStorage";
 
 const Cards = ({ recipe }) => {
+  useEffect(() => {
+    const loadRecipeData = async () => {
+      recipe = await loadFaveState();
+      console.log("loading recipe data");
+    }
+    loadRecipeData
+  }, []);
+    
   const navigation = useNavigation();
-
+  const [listFavorited, setList] = useState([])
   const { height, width } = useWindowDimensions();
   const [isPortrait, setIsPortrait] = useState(height > width);
   useEffect(() => {
@@ -20,19 +29,22 @@ const Cards = ({ recipe }) => {
     navigation.navigate("Recipe", { recipe });
   };
 
-  const handleHeartIconPress = () => {
-    setHeart((prevHeart) =>
-      prevHeart === require("./img/heart.png")
-        ? require("./img/heartclicked.png")
-        : require("./img/heart.png")
-    );
-  };
-  const [heart, setHeart] = useState(require("./img/heart.png"));
+  const handleFaveState = () => {
+    recipe.favorited = !recipe.favorited
+    setHeart(recipe.favorited
+      ? require("./img/heartclicked.png")
+      : require("./img/heart.png"))
+    saveFaveState(recipe)
+  }
+  
+  const [heart, setHeart] = useState(recipe.favorited
+    ? require("./img/heartclicked.png")
+    : require("./img/heart.png"));
 
   return (
     <TouchableOpacity onPress={handleRecipeCardPress} style={isPortrait ? [styles.portraitCardContainer, styles.portraitCard] : [styles.landscapeCardContainer, styles.landscapeCard]}>
       <Image source={recipe.image} style={isPortrait? styles.imagePortrait : styles.imageLandscape} />
-      <TouchableOpacity onPress={handleHeartIconPress} style={styles.heartContainer}>
+      <TouchableOpacity onPress={handleFaveState} style={styles.heartContainer}>
         <View style={styles.heartShadow} />
         <Image source={heart} style={styles.heart} />    
       </TouchableOpacity>

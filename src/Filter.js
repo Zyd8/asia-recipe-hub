@@ -3,7 +3,7 @@ import { View, TextInput, TouchableOpacity, StyleSheet, Image, Text, Button, Dim
 import Modal from "react-native-modal";
 import SelectDropdown from 'react-native-select-dropdown';
 import { DATA } from "./data";
-import handleOrderBy from "./RecipeLoader";
+
 
 const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
   const country = ["All", "Philippines", "China", "Japan"];
