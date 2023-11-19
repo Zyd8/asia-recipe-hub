@@ -4,6 +4,7 @@ import { useRoute } from "@react-navigation/native";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import YoutubePlayer from "react-native-youtube-iframe";
 import { loadDarkModeState } from "./AsyncStorage";
+import Timer from "./Timer";
 
 const RoomRecipe = () => {
   const route = useRoute();
@@ -116,6 +117,8 @@ const RoomRecipe = () => {
           keyExtractor={(item, index) => index.toString()}
           renderItem={renderProcedureItem}
         />
+
+        <Timer/>
       </ScrollView>
     </View>
   );
