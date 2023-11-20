@@ -30,7 +30,6 @@ const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
     loadDarkMode();
   }, []);
 
-
   useEffect(() => {
     const updateModalSize = () => {
       const width = Dimensions.get("window").width * 0.9;
@@ -49,38 +48,41 @@ const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
   const handleCountrySelect = (selectedItem) => {
     setSelectedCountry(selectedItem);
   };
-
+  
   const handleCookingTimeSelect = (selectedItem) => {
     setSelectedCookingTime(selectedItem);
   };
-
+  
   const handleDifficultySelect = (selectedItem) => {
     setSelectedDifficulty(selectedItem);
   };
 
-  const recipeAscending = [...DATA].sort((a, b) => 
-    a.title > b.title ? 1 : -1
-  );
-
-
-  const recipeDescending = [...DATA].sort((a, b) => 
-    a.title > b.title ? -1 : 1
-  );
-
-
-  const toggleOrderBy = () => {
-    const newOrderBy = orderBy === "Ascending" ? recipeDescending : recipeAscending;
-    setOrderBy(orderBy === "Ascending" ? "Descending" : "Ascending");
-  };
-
   const handleFilterPress = () => {
-    const actualCountry = selectedCountry === "All" ? "" : selectedCountry;
+  let actualCountry = selectedCountry;
+  let actualCookingTime = selectedCookingTime;
+  let actualDifficulty = selectedDifficulty;
 
+  if (!selectedCountry) {
+    actualCountry = "All";
+    setSelectedCountry("All");
+  }
+  if (!selectedCookingTime) {
+    actualCookingTime = "All";
+    setSelectedCookingTime("All");
+  }
+  if (!selectedDifficulty) {
+    actualDifficulty = "All";
+    setSelectedDifficulty("All");
+  }
 
+  setSelectedCountry("All");
+  setSelectedCookingTime("All");
+  setSelectedDifficulty("All");
 
-    onFilterChange(actualCountry, selectedCookingTime, selectedDifficulty);
-    toggleModal();
-  };
+  onFilterChange(actualCountry, actualCookingTime, actualDifficulty)
+
+  toggleModal();
+};
 
   const isLandscape = Dimensions.get("window").width > Dimensions.get("window").height;
 
@@ -346,7 +348,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   dropdown1BtnTxtStyle: {color: '#444'},
-  dropdown1DropdownStyle: {backgroundColor: '#EFEFEF'},
+  dropdown1DropdownStyle: {backgroundColor: '#EFEFEF', height: 200},
   dropdown1DropdownStyleB: {backgroundColor: '#EFEFEF', height: 150},
   dropdown1RowStyle: {backgroundColor: '#EFEFEF', borderBottomColor: '#C5C5C5'},
   dropdown1RowTxtStyle: {color: '#444'},
