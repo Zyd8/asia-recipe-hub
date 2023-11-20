@@ -44,18 +44,19 @@ const Cards = ({ recipe }) => {
 
   return (
     <TouchableOpacity onPress={handleRecipeCardPress} style={isPortrait ? [styles.portraitCardContainer, styles.portraitCard] : [styles.landscapeCardContainer, styles.landscapeCard]}>
-      <Image source={recipe.image} style={isPortrait? styles.imagePortrait : styles.imageLandscape} />
+      <Image source={recipe.image} style={isPortrait ? styles.imagePortrait : styles.imageLandscape} />
       <TouchableOpacity onPress={handleFaveState} style={styles.heartContainer}>
         <View style={styles.heartShadow} />
         <Image source={heart ? require("./img/heartclicked.png") : require("./img/heart.png")} style={styles.heart} />    
       </TouchableOpacity>
       <View style={styles.textContainer}>
-        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+        <View style={{ flexDirection: "row", justifyContent: "space-between"}}>
           <Text style={styles.recipeTitle}>{recipe.title}</Text>
-          <Text style={styles.cookingTime}>⏱️ {recipe.cookingTime} minutes</Text>
+          <Text style={styles.originCountry}>🌎 {recipe.originCountry}</Text>
         </View>
         <View style={{ flexDirection: "row", justifyContent: "flex-end" }}>
-          <Text style={styles.originCountry}>🌎 {recipe.originCountry}</Text>
+          <Text style={styles.cookingTime}>⏱️ {recipe.cookingTime} minutes</Text>
+          <Text style={styles.difficulty}>⭐ {recipe.difficulty}</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -125,7 +126,7 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     fontSize: 20,
     fontWeight: "bold",
-    color: "white"
+    color: "white",
   },
   heartContainer: {
     position: 'absolute',
@@ -158,6 +159,13 @@ const styles = StyleSheet.create({
     margin: 2,
     color: "white",
     backgroundColor: "#22B14C",
+    padding: 5,
+    borderRadius: 10,
+  },
+  difficulty: {
+    margin: 2,
+    color: "white",
+    backgroundColor: "#A4D8D8",
     padding: 5,
     borderRadius: 10,
   }

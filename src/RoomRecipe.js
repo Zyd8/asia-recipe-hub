@@ -99,10 +99,13 @@ const RoomRecipe = () => {
         <ScrollView>
         <Text style={styles.title}>{recipe.title}</Text>
         <View style={styles.infoContainer}>
+          <Text style={styles.originCountry}>🌎 Country of Origin: {recipe.originCountry}</Text>
+        </View>
+        <View style={styles.infoContainer}>
           <Text style={styles.cookingTime}>⏱️ Cooking Time: {recipe.cookingTime} minutes</Text>
         </View>
         <View style={styles.infoContainer}>
-          <Text style={styles.originCountry}>🌎 Country of Origin: {recipe.originCountry}</Text>
+          <Text style={styles.difficulty}>⭐ Difficulty Level: {recipe.difficulty}</Text>
         </View>
         <Text style={styles.subTitle}>Ingredients:</Text>
         <FlatList
@@ -239,6 +242,13 @@ const styles = StyleSheet.create({
     textAlign: "justify",
     marginRight: 50,
     color: "white",
+  },
+  difficulty: {
+    margin: 2,
+    color: "white",
+    backgroundColor: "#A4D8D8",
+    padding: 5,
+    borderRadius: 10,
   }
 });
 
