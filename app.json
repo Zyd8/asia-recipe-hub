@@ -20,10 +20,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/logo.jpeg",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.zyldzkie.MobileRecipeAppG3"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "fe4f72ab-af5f-4a34-9101-28fc923a9132"
+      }
+    },
+    "owner": "zyldzkie"
   }
 }
