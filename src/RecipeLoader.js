@@ -30,20 +30,19 @@ const RecipeLoader = () => {
     setFilteredRecipes(filtered);
   };
 
-  const handleFilterChange = (selectedCountry, selectedCookingTime) => {
+  const handleFilterChange = (selectedCountry, selectedCookingTime, selectedDifficulty) => {
     console.log("Selected Country:", selectedCountry);
     console.log("Selected Cooking Time:", selectedCookingTime);
+    console.log("Selected Cooking Time:", selectedDifficulty);
 
     let filtered = [...DATA];
   
-    // Filter by selected country
     if (selectedCountry && selectedCountry !== "All") {
       filtered = filtered.filter(
         (recipe) => recipe.originCountry.toLowerCase() === selectedCountry.toLowerCase()
       );
     }
   
-    // Filter by selected cooking time
     switch (selectedCookingTime) {
       case "15 to 30mins":
         filtered = filtered.filter(recipe => recipe.cookingTime >= 15 && recipe.cookingTime <= 30);
@@ -59,6 +58,12 @@ const RecipeLoader = () => {
         break;
       default:
         break;
+    }
+
+    if (selectedDifficulty && selectedDifficulty !== "All") {
+      filtered = filtered.filter(
+        (recipe) => recipe.difficulty.toLowerCase() === selectedDifficulty.toLowerCase()
+      );
     }
   
     setFilteredRecipes(filtered);

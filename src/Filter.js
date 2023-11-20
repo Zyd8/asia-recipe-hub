@@ -15,6 +15,7 @@ const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedCookingTime, setSelectedCookingTime] = useState("");
+  const [selectedDifficulty, setSelectedDifficulty] = useState("");
   const [orderBy, setOrderBy] = useState ("Ascending");
   const [modalWidth, setModalWidth] = useState(Dimensions.get("window").width * 0.9);
   const [modalHeight, setModalHeight] = useState(Dimensions.get("window").height * 0.6);
@@ -43,6 +44,10 @@ const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
     setSelectedCookingTime(selectedItem);
   };
 
+  const handleDifficultySelect = (selectedItem) => {
+    setSelectedDifficulty(selectedItem);
+  };
+
   const recipeAscending = [...DATA].sort((a, b) => 
     a.title > b.title ? 1 : -1
   );
@@ -63,7 +68,7 @@ const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
 
 
 
-    onFilterChange(actualCountry, selectedCookingTime);
+    onFilterChange(actualCountry, selectedCookingTime, selectedDifficulty);
     toggleModal();
   };
 
@@ -128,16 +133,38 @@ const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
               rowTextForSelection={(item, index) => {
                 return item;
               }}
-              buttonStyle={styles.dropdown2BtnStyle}
+              buttonStyle={styles.dropdown1BtnStyle}
               buttonTextStyle={styles.dropdown2BtnTxtStyle}
               renderDropdownIcon={isOpened => {
                 return <FontAwesome name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
               }}
               dropdownIconPosition={'right'}
-              dropdownStyle={styles.dropdown2DropdownStyle}
+              dropdownStyle={styles.dropdown1DropdownStyleB}
               rowStyle={styles.dropdown2RowStyle}
               rowTextStyle={styles.dropdown2RowTxtStyle}
             />
+            <SelectDropdown
+              defaultButtonText={"Difficulty"}
+              style={styles.dropdown}
+              data={difficulty}
+              onSelect={handleDifficultySelect}
+              buttonTextAfterSelection={(selectedItem, index) => {
+                return selectedItem;
+              }}
+              rowTextForSelection={(item, index) => {
+                return item;
+              }}
+              buttonStyle={styles.dropdown2BtnStyle}
+              buttonTextStyle={styles.dropdown1BtnTxtStyle}
+              renderDropdownIcon={isOpened => {
+                return <FontAwesome name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
+              }}
+              dropdownIconPosition={'right'}
+              dropdownStyle={styles.dropdown2DropdownStyleC}
+              rowStyle={styles.dropdown1RowStyle}
+              rowTextStyle={styles.dropdown1RowTxtStyle}
+            />
+            <View style={styles.divider} />
 
             <View style={styles.filler}></View>
             <Button onPress={handleFilterPress} style={styles.confirms} title="Confirm Changes" />
@@ -185,16 +212,38 @@ const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
               rowTextForSelection={(item, index) => {
                 return item;
               }}
-              buttonStyle={styles.dropdown2BtnStyle}
+              buttonStyle={styles.dropdown1BtnStyle}
               buttonTextStyle={styles.dropdown2BtnTxtStyle}
               renderDropdownIcon={isOpened => {
                 return <FontAwesome name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
               }}
               dropdownIconPosition={'right'}
-              dropdownStyle={styles.dropdown2DropdownStyle}
+              dropdownStyle={styles.dropdown1DropdownStyle}
               rowStyle={styles.dropdown2RowStyle}
               rowTextStyle={styles.dropdown2RowTxtStyle}
             />
+            <SelectDropdown
+              defaultButtonText={"Difficulty"}
+              style={styles.dropdown}
+              data={difficulty}
+              onSelect={handleDifficultySelect}
+              buttonTextAfterSelection={(selectedItem, index) => {
+                return selectedItem;
+              }}
+              rowTextForSelection={(item, index) => {
+                return item;
+              }}
+              buttonStyle={styles.dropdown2BtnStyle}
+              buttonTextStyle={styles.dropdown1BtnTxtStyle}
+              renderDropdownIcon={isOpened => {
+                return <FontAwesome name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
+              }}
+              dropdownIconPosition={'right'}
+              dropdownStyle={styles.dropdown1DropdownStyle}
+              rowStyle={styles.dropdown1RowStyle}
+              rowTextStyle={styles.dropdown1RowTxtStyle}
+            />
+            <View style={styles.divider} />
 
             <View style={styles.filler}></View>
             <Button onPress={handleFilterPress} style={styles.confirms} title="Confirm Changes" />
@@ -244,6 +293,8 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 30,
     marginLeft: 55,
+    alignContent: "center",
+    alignItems: "center",
   },
   modal2: {
     width: 250,
@@ -251,12 +302,14 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: "white",
     borderRadius: 30,
+    alignContent: "center",
+    alignItems: "center",
   },
   header: {
     fontSize: 30,
     fontWeight: "bold",
     textAlign: "center",
-    marginBottom: 30,
+    marginBottom: 15,
   },
   headers2: {
     flexDirection: "row",
@@ -279,10 +332,11 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 1,
     borderColor: '#444',
-    marginBottom: 25,
+    marginBottom: 15,
   },
   dropdown1BtnTxtStyle: {color: '#444'},
-  dropdown1DropdownStyle: {backgroundColor: '#EFEFEF', height: 150},
+  dropdown1DropdownStyle: {backgroundColor: '#EFEFEF'},
+  dropdown1DropdownStyleB: {backgroundColor: '#EFEFEF', height: 150},
   dropdown1RowStyle: {backgroundColor: '#EFEFEF', borderBottomColor: '#C5C5C5'},
   dropdown1RowTxtStyle: {color: '#444'},
   divider: {width: 12},
@@ -292,9 +346,12 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 1,
     borderColor: '#444',
+    marginBottom: -30
   },
   dropdown2BtnTxtStyle: {color: '#444', textAlign: 'center'},
-  dropdown2DropdownStyle: {backgroundColor: '#EFEFEF', height: 150},
+  dropdown2DropdownStyle: {backgroundColor: '#EFEFEF'},
+  dropdown2DropdownStyleB: {backgroundColor: '#EFEFEF', height: 150},
+  dropdown2DropdownStyleC: {backgroundColor: '#EFEFEF', height: 100},
   dropdown2RowStyle: {backgroundColor: '#EFEFEF', borderBottomColor: '#C5C5C5'},
   dropdown2RowTxtStyle: {color: '#444'},
   confirms: {
