@@ -1,5 +1,4 @@
 export const DATA = [
-  // 1st Country
   {
     id: "1",
     videoId: "wwapBsT0oc8",
@@ -27,6 +26,7 @@ export const DATA = [
       "4. Add bay leaves and simmer for a few more minutes.",
       "5. Serve hot with rice. Enjoy your Chicken and Pork Adobo!",
     ],
+    imageBackground: require("./img/philippines.jpg")
   },
 
   {
@@ -56,6 +56,7 @@ export const DATA = [
       "5. Season with salt and pepper according to taste.",
       "6. Serve hot. Enjoy your Pork Sinigang!",
     ],
+    imageBackground: require("./img/philippines.jpg")
   },
   {
     id: "3",
@@ -86,6 +87,7 @@ export const DATA = [
       "6. Top with mayonnaise and, if desired, a sunny side up egg.",
       "7. Serve hot. Enjoy your Sisig!",
     ],
+    imageBackground: require("./img/philippines.jpg")
   },
   {
     id: "4",
@@ -119,6 +121,7 @@ export const DATA = [
       "7. Let the duck rest for a few minutes before carving. Serve the Peking Duck with thin pancakes or steamed buns, sliced green onions, cucumber strips, and hoisin sauce.",
       "8. To eat, spread hoisin sauce on a pancake or bun, add slices of duck, green onions, and cucumber. Roll it up and enjoy!",
     ],
+    imageBackground: require("./img/china.jpg")
   },
   {
     id: "5",
@@ -154,6 +157,7 @@ export const DATA = [
       "6. Add peanuts and sliced green onions. Stir until everything is evenly coated and heated through.",
       "7. Serve over cooked rice. Enjoy your Kung Pao Chicken!",
     ],
+    imageBackground: require("./img/china.jpg")
   },
   {
     id: "6",
@@ -186,6 +190,7 @@ export const DATA = [
       "7. Serve hot with a dipping sauce made from soy sauce, rice vinegar, and sesame oil.",
       "8. Enjoy your delicious homemade Chinese Dumplings!",
     ],
+    imageBackground: require("./img/china.jpg")
   },
   {
     id: "7",
@@ -209,6 +214,7 @@ export const DATA = [
       "5. Optionally, you can garnish with sliced green onions or sesame seeds for added texture and taste.",
       "6. Enjoy your Salmon Sashimi immediately for the best freshness and flavor.",
     ],
+    imageBackground: require("./img/japan.jpg")
   },
   {
     id: "8",
@@ -240,6 +246,7 @@ export const DATA = [
       "7. Dip the soba noodles into the prepared dipping sauce before eating.",
       "8. Enjoy your refreshing Zaru Soba!",
     ],
+    imageBackground: require("./img/japan.jpg")
   },
   {
     id: "9",
@@ -264,6 +271,7 @@ export const DATA = [
       "6. Serve the salmon nigiri with soy sauce on the side for dipping. Add a small amount of wasabi and pickled ginger for extra flavor.",
       "7. Enjoy your Classic Salmon Nigiri!",
     ],
+    imageBackground: require("./img/japan.jpg")
   },
   {
     id: "10",
@@ -300,6 +308,7 @@ export const DATA = [
       "7. Stir in half of the chopped peanuts, bean sprouts, and green onions. Cook for an additional 2-3 minutes.",
       "8. Serve Pad Thai on a platter, garnished with remaining peanuts, chopped cilantro, fresh basil, and lime wedges.",
     ],
+    imageBackground: require("./img/thailand.jpg")
   },
   {
     id: "11",
@@ -330,6 +339,7 @@ export const DATA = [
       "Add chilled rice, kimchi juice, frozen peas, soy sauce, and sesame oil. Stir-fry until well combined and heated through.",
       "Garnish with sliced green onions before serving.",
     ],
+    imageBackground: require("./img/southkorea.jpg")
   },
   {
     id: "12",
@@ -359,6 +369,7 @@ export const DATA = [
       "Simmer until shrimp is cooked and vegetables are tender.",
       "Garnish with fresh cilantro before serving.",
     ],
+    imageBackground: require("./img/thailand.jpg")
   },
   {
     id: "14",
@@ -386,6 +397,7 @@ export const DATA = [
       "Garnish with cucumber slices and chopped cilantro.",
       "Serve with the garlic-soy dipping sauce.",
     ],
+    imageBackground: require("./img/china.jpg")
   },
   {
     id: "15",
@@ -420,6 +432,7 @@ export const DATA = [
       "Pour chicken broth over the rice and cook until rice is tender.",
       "Garnish with fresh cilantro and mint before serving.",
     ],
+    imageBackground: require("./img/india.jpg")
   },
   {
     id: "16",
@@ -446,6 +459,7 @@ export const DATA = [
       "Steam dumplings for about 15-20 minutes until cooked.",
       "Serve with soy sauce and chili oil for dipping.",
     ],
+    imageBackground: require("./img/china.jpg")
   },
   {
     id: "17",
@@ -475,6 +489,7 @@ export const DATA = [
       "Remove lemongrass and kaffir lime leaves before serving.",
       "Garnish with mushrooms and cilantro.",
     ],
+    imageBackground: require("./img/thailand.jpg")
   },
   {
     id: "18",
@@ -500,6 +515,7 @@ export const DATA = [
       "5. Optionally, add toppings such as mochi balls, red bean paste, or fresh sliced fruits for extra flavor and texture.",
       "6. Serve immediately and enjoy your refreshing Kakigōri!",
     ],
+    imageBackground: require("./img/japan.jpg")
   },
   {
     id: "19",
@@ -528,6 +544,7 @@ export const DATA = [
       "Slice the roll into bite-sized pieces.",
       "Serve with soy sauce for dipping.",
     ],
+    imageBackground: require("./img/southkorea.jpg")
   },
   {
     id: "20",
@@ -552,6 +569,7 @@ export const DATA = [
       "Pour sugar syrup and coconut milk over the top.",
       "Stir before enjoying the refreshing dessert.",
     ],
+    imageBackground: require("./img/thailand.jpg")
   },
   {
     id: "21",
@@ -577,6 +595,7 @@ export const DATA = [
       "Allow to cool before refrigerating.",
       "Invert the mold onto a serving plate to release the leche flan with caramel on top.",
     ],
+    imageBackground: require("./img/philippines.jpg")
   },
   {
     id: "22",
@@ -602,6 +621,7 @@ export const DATA = [
       "Shape the mixture into cylindrical logs and roll in grated coconut.",
       "Slice into bite-sized pieces.",
     ],
+    imageBackground: require("./img/philippines.jpg")
   },
   {
     id: "23",
@@ -627,6 +647,7 @@ export const DATA = [
       "Combine the wet and dry ingredients to form a smooth batter.",
       "Remove the pancake from the pan and set it aside.",
     ],
+    imageBackground: require("./img/malaysia.jpg")
   },
   {
     id: "24",
@@ -656,6 +677,7 @@ export const DATA = [
       "In a saucepan, combine sugar, water, honey, and lemon juice to create a syrup.",
       "Pour the syrup over the baklava while it's still hot. Optionally, sprinkle with ground cinnamon.",
     ],
+    imageBackground: require("./img/arabia.jpg")
   },
   {
     id: "25",
@@ -718,6 +740,7 @@ export const DATA = [
       "Season with fish sauce and garnish with fresh herbs.",
       "Serve with bean sprouts and lime wedges on the side.",
     ],
+    imageBackground: require("./img/vietnam.jpg")
   },
   {
     id: "27",
@@ -770,6 +793,7 @@ export const DATA = [
       "8. Once you've enjoyed all your ingredients, you can finish the meal by drinking the flavorful broth.",
       "9. Enjoy your interactive and delicious Chinese Hot Pot experience!",
     ],
+    imageBackground: require("./img/china.jpg")
   },
   {
     id: "30",
@@ -797,5 +821,6 @@ export const DATA = [
       "5. Steam the cups for about 20-25 minutes until the fish is cooked.",
       "6. Garnish with kaffir lime leaves and serve with steamed rice.",
     ],
+    imageBackground: require("./img/cambodia.jpg")
   },
 ];
