@@ -179,7 +179,7 @@ const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
             <View style={styles.divider} />
 
             <View style={styles.filler}></View>
-            <Button onPress={handleFilterPress} style={styles.confirms} title="Confirm Changes" />
+            <Button onPress={handleFilterPress} style={styles.confirms}  color={"#AB8476"} title="Confirm Changes" />
           </View>
         </Modal>
       ) : (
