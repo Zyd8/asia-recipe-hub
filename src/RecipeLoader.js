@@ -33,7 +33,7 @@ const RecipeLoader = () => {
   const handleFilterChange = (selectedCountry, selectedCookingTime, selectedDifficulty) => {
     console.log("Selected Country:", selectedCountry);
     console.log("Selected Cooking Time:", selectedCookingTime);
-    console.log("Selected Cooking Time:", selectedDifficulty);
+    console.log("Selected Difficulty:", selectedDifficulty);
 
     let filtered = [...DATA];
   
