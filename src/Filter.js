@@ -3,15 +3,15 @@ import { View, TextInput, TouchableOpacity, StyleSheet, Image, Text, Button, Dim
 import Modal from "react-native-modal";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import SelectDropdown from 'react-native-select-dropdown';
+import { loadDarkModeState } from "./AsyncStorage";
 import { DATA } from "./data";
-import handleOrderBy from "./RecipeLoader";
+import { useFocusEffect } from '@react-navigation/native';
 
 const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
   const country = ["All", "Philippines", "China", "Japan"];
   const cookTime = ["All", "15 to 30mins", "30 to 60mins", "60mins to 120mins", "120mins above"];
   const difficulty = ["All", "Easy", "Intermediate", "Advanced"];
-
-
+  const [darkmode, setDarkMode] = useState(false);
   const [isModalVisible, setModalVisible] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedCookingTime, setSelectedCookingTime] = useState("");
@@ -19,6 +19,16 @@ const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
   const [orderBy, setOrderBy] = useState ("Ascending");
   const [modalWidth, setModalWidth] = useState(Dimensions.get("window").width * 0.9);
   const [modalHeight, setModalHeight] = useState(Dimensions.get("window").height * 0.6);
+
+  useFocusEffect(() => {
+    const loadDarkMode = async () => {
+      const storedDarkMode = await loadDarkModeState();
+      setDarkMode(storedDarkMode);
+      console.log("loading darkmode state");
+    };
+
+    loadDarkMode();
+  }, []);
 
 
   useEffect(() => {
@@ -98,7 +108,7 @@ const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
           style={{ height: modalHeight, width: modalWidth, justifyContent: 'center', alignItems: 'center'}}    
           onBackdropPress={toggleModal}
         >
-          <View style={styles.modal2}>
+          <View style={[styles.modal2, darkmode ? styles.darkContainer : styles.lightContainer]}>
             <Text style={styles.header}>Filter By:</Text>
             <SelectDropdown
               defaultButtonText={"Country"}
@@ -178,7 +188,7 @@ const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
           style={{ height: modalHeight, width: modalWidth }}
           onBackdropPress={toggleModal}
         >
-          <View style={styles.modal}>
+          <View style={[styles.modal, darkmode ? styles.darkContainer : styles.lightContainer]}>
             <Text style={styles.header}>Filter By:</Text>
             <SelectDropdown
               defaultButtonText={"Country"}
@@ -246,7 +256,7 @@ const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
             <View style={styles.divider} />
 
             <View style={styles.filler}></View>
-            <Button onPress={handleFilterPress} style={styles.confirms} title="Confirm Changes" />
+            <Button onPress={handleFilterPress} style={styles.confirms} title="Confirm Changes" color={"#AB8476"}/>
           </View>
         </Modal>
       )}
@@ -290,11 +300,11 @@ const styles = StyleSheet.create({
     width: 250,
     height: 275,
     padding: 10,
-    backgroundColor: "white",
     borderRadius: 30,
     marginLeft: 55,
     alignContent: "center",
     alignItems: "center",
+    elevation: 5,
   },
   modal2: {
     width: 250,
@@ -310,6 +320,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     marginBottom: 15,
+    color: "white"
   },
   headers2: {
     flexDirection: "row",
@@ -356,6 +367,12 @@ const styles = StyleSheet.create({
   dropdown2RowTxtStyle: {color: '#444'},
   confirms: {
     
+  },
+  lightContainer: {
+    backgroundColor: "#FFE1A8",
+  },
+  darkContainer: {
+    backgroundColor: "#323233",
   },
 });
 
