@@ -6,7 +6,7 @@ const Welcome = ({ isVisible, onClose }) => {
     <Modal visible={isVisible} animationType="slide" transparent={true}>
       <View style={styles.modalContainer}>
         <Image
-          source={require("./../assets/logo.jpeg")} 
+          source={require("./../assets/logo.png")} 
           style={styles.logo}
         />
         <Text style={styles.welcomeText}>Welcome to Asia Recipe Hub!</Text>
