@@ -33,7 +33,7 @@ const Spotlight = () => {
           sliderWidth={width}
           itemWidth={250}
           layout="default"
-          firstItem={5}
+          firstItem={2}
           useScrollView={true}
           autoplay={true}
           autoplayInterval={3000}

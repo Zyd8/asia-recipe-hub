@@ -6,14 +6,14 @@ const Welcome = ({ isVisible, onClose }) => {
     <Modal visible={isVisible} animationType="slide" transparent={true}>
       <View style={styles.modalContainer}>
         <Image
-          source={require('./img/sisig.jpeg')} // Replace with your app logo
+          source={require("./../assets/logo.jpeg")} 
           style={styles.logo}
         />
-        <Text style={styles.welcomeText}>Welcome to Mobile Recipe Hub!</Text>
+        <Text style={styles.welcomeText}>Welcome to Asia Recipe Hub!</Text>
         <Text style={styles.descriptionText}>
           Your one-stop app for all your recipe needs, focusing on delicious Asian cuisines.
         </Text>
-        <Button title="Get Started" onPress={onClose} />
+        <Button title="Get Started" onPress={onClose} color={"#AB8476"}/>
       </View>
     </Modal>
   );
@@ -28,9 +28,10 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   logo: {
-    width: 150, // Adjust the width and height as needed
+    width: 150, 
     height: 150,
     marginBottom: 20,
+    borderRadius: 10
   },
   welcomeText: {
     fontSize: 24,
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   descriptionText: {
-    fontSize: 16,
+    fontSize: 18,
     color: 'white',
     textAlign: 'center',
     marginBottom: 20,
