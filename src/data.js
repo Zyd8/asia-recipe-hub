@@ -17,7 +17,7 @@ export const DATA = [
       "1/2 cup water",
       "Bay leaves",
     ],
-    cookingTime: "45 Minutes",
+    cookingTime: 45,
     originCountry: "Philippines",
     difficulty: "Easy",
     procedure: [
@@ -45,7 +45,7 @@ export const DATA = [
       "1 packet sinigang mix",
       "Salt and pepper to taste",
     ],
-    cookingTime: "60 Minutes",
+    cookingTime: 60,
     originCountry: "Philippines",
     difficulty: "Intermediate",
     procedure: [
@@ -287,7 +287,8 @@ export const DATA = [
       "1 tablespoon tamarind paste",
       "1 tablespoon sugar",
     ],
-    cookingTime: "10 minutes",
+    cookingTime: 10,
+    difficulty: "Intermediate",
     originCountry: "Thailand",
     procedure: [
       "1. Cook rice noodles according to package instructions; drain and set aside.",
@@ -317,7 +318,8 @@ export const DATA = [
       "2 tablespoons soy sauce",
       "1 tablespoon sesame oil",
     ],
-    cookingTime: "15 minutes",
+    cookingTime: 15,
+    difficulty: "Easy",
     originCountry: "South Korea",
     procedure: [
       "Heat a large skillet or wok over medium heat.",
@@ -347,7 +349,8 @@ export const DATA = [
       "1 teaspoon chili paste",
       "Fresh cilantro for garnish",
     ],
-    cookingTime: "10 minutes",
+    cookingTime: 10,
+    difficulty: "Intermediate",
     originCountry: "Thailand",
     procedure: [
       "In a pot, bring chicken broth to a boil. Add lemongrass and kaffir lime leaves.",
@@ -372,7 +375,8 @@ export const DATA = [
       "Ginger slices",
       "Soy sauce and sesame oil for dipping sauce",
     ],
-    cookingTime: "20 minutes",
+    cookingTime: 20,
+    difficulty: "Intermediate",
     originCountry: "China",
     procedure: [
       "Rub chicken with salt and rinse. Boil in a pot of water with ginger until fully cooked.",
@@ -386,7 +390,7 @@ export const DATA = [
   {
     id: "15",
     videoId: "psjfRM4m2Rk",
-    title: "Biryani",
+    title: "Chicken Biryani",
     image: require("./img/biryani.jpg"),
     ingredients: [
       "2 cups basmati rice, soaked",
@@ -404,8 +408,9 @@ export const DATA = [
       "4 cups chicken broth",
       "Fresh cilantro and mint for garnish",
     ],
-    cookingTime: "20 minutes",
-    originCountry: "india",
+    cookingTime: 20,
+    difficulty: "Advanced",
+    originCountry: "India",
     procedure: [
       "Marinate chicken in yogurt, ginger-garlic paste, and spices for at least 1 hour.",
       "In a pot, sauté sliced onions until golden brown; set half aside for garnish.",
@@ -432,7 +437,8 @@ export const DATA = [
       "Wonton wrappers",
       "Soy sauce and chili oil for dipping",
     ],
-    cookingTime: "20 minutes",
+    cookingTime: 20,
+    difficulty: "Intermediate",
     originCountry: "China",
     procedure: [
       "In a bowl, mix ground pork, chopped shrimp, water chestnuts, soy sauce, sesame oil, ginger, and green onions.",
@@ -458,8 +464,9 @@ export const DATA = [
       "1 tablespoon chili paste",
       "Mushrooms and cilantro for garnish",
     ],
-    cookingTime: "15 minutes",
+    cookingTime: 15,
     originCountry: "Thailand",
+    difficulty: "Advanced",
     procedure: [
       "In a pot, bring chicken broth to a simmer with lemongrass, kaffir lime leaves, and galangal.",
       "Add chicken slices and cook until they are no longer pink.",
@@ -482,7 +489,8 @@ export const DATA = [
       "Red bean paste, for topping (optional)",
       "Fresh fruits, sliced (optional)",
     ],
-    cookingTime: "7 minutes",
+    cookingTime: 7,
+    difficulty: "Easy",
     originCountry: "Japan",
     procedure: [
       "1. If you don't have shaved ice, you can create it by blending ice cubes in a blender until they reach a snow-like consistency.",
@@ -508,7 +516,8 @@ export const DATA = [
       "Sesame oil and sesame seeds",
       "Soy sauce for dipping",
     ],
-    cookingTime: "15 Minutes",
+    cookingTime: 15,
+    difficulty: "Advanced",
     originCountry: "South Korea",
     procedure: [
       "Place a sheet of seaweed on a bamboo sushi rolling mat.",
@@ -533,7 +542,8 @@ export const DATA = [
       "Crushed ice",
       "Coconut milk",
     ],
-    cookingTime: "10 minutes",
+    cookingTime: 10,
+    difficulty: "Easy",
     originCountry: "Thailand",
     procedure: [
       "Color water chestnut cubes with red food coloring.",
@@ -554,7 +564,8 @@ export const DATA = [
       "1 can (12 oz) evaporated milk",
       "1 cup sugar",
     ],
-    cookingTime: "30 minutes",
+    cookingTime: 30,
+    difficulty: "Intermediate",
     originCountry: "Philippines",
     procedure: [
       "In a bowl, whisk together egg yolks, sweetened condensed milk, and evaporated milk until well combined.",
@@ -579,7 +590,8 @@ export const DATA = [
       "1 cup sugar",
       "Grated coconut for coating",
     ],
-    cookingTime: "30 minutes",
+    cookingTime: 30,
+    difficulty: "Intermediate",
     originCountry: "Philippines",
     procedure: [
       "In a pan, toast glutinous rice flour and rice flour until light brown.",
@@ -606,7 +618,8 @@ export const DATA = [
       "1 egg",
       "Corn kernels, crushed peanuts, and sugar for filling",
     ],
-    cookingTime: "30 minutes",
+    cookingTime: 30,
+    difficulty: "Intermediate",
     originCountry: "Malaysia",
     procedure: [
       "in a bowl, mix all-purpose flour, sugar, baking soda, and baking powder.",
@@ -630,7 +643,8 @@ export const DATA = [
       "1 teaspoon lemon juice",
       "Ground cinnamon (optional)",
     ],
-    cookingTime: "15 minutes",
+    cookingTime: 15,
+    difficulty: "Advanced",
     originCountry: "Arabia",
     procedure: [
       "Preheat the oven to 350°F (175°C).",
@@ -662,7 +676,8 @@ export const DATA = [
       "Chinese chives, chopped",
       "Lime wedges",
     ],
-    cookingTime: "20 minutes",
+    cookingTime: 20,
+    difficulty: "Advanced",
     originCountry: "Singapore",
     procedure: [
       "Soak rice noodles in warm water until softened.",
@@ -692,7 +707,8 @@ export const DATA = [
       "Fresh herbs (cilantro, basil, mint)",
       "Bean sprouts and lime wedges, for serving",
     ],
-    cookingTime: "20 minutes",
+    cookingTime: 20,
+    difficulty: "Intermediate",
     originCountry: "Vietnam",
     procedure: [
       "In a pot, simmer broth with ginger, star anise, and cinnamon for 15 minutes.",
@@ -717,7 +733,8 @@ export const DATA = [
       "Vietnamese herbs (perilla, mint)",
       "Shrimp paste and fish sauce for seasoning",
     ],
-    cookingTime: "20 minutes",
+    cookingTime: 20,
+    difficulty: "Easy",
     originCountry: "vietnam",
     procedure: [
       "1. In a pot, combine beef broth, star anise, cinnamon stick, and ginger. Simmer for 1-2 hours.",
@@ -739,7 +756,8 @@ export const DATA = [
       "Dipping sauces (soy sauce, sesame oil, hoisin sauce, chopped green onions, etc.)",
       "Noodles (optional)",
     ],
-    cookingTime: "40 minutes",
+    cookingTime: 40,
+    difficulty: "Advanced",
     originCountry: "China",
     procedure: [
       "1. Prepare the broth of your choice. You can use store-bought hot pot broth or make your own by simmering ingredients like bones, aromatics, and seasonings in water.",
@@ -768,7 +786,8 @@ export const DATA = [
       "Kaffir lime leaves for garnish",
       "Banana leaves for steaming",
     ],
-    cookingTime: "20 minutes",
+    cookingTime: 20,
+    difficulty: "Intermediate",
     originCountry: "Cambodia",
     procedure: [
       "1. In a bowl, mix coconut milk, fish sauce, red curry paste, and sugar.",
