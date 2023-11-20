@@ -30,20 +30,40 @@ const RecipeLoader = () => {
     setFilteredRecipes(filtered);
   };
 
-  const handleFilterChange = (selectedCountry) => {
+  const handleFilterChange = (selectedCountry, selectedCookingTime) => {
     console.log("Selected Country:", selectedCountry);
+    console.log("Selected Cooking Time:", selectedCookingTime);
 
-    if (!selectedCountry) {
-      setFilteredRecipes(DATA);
-      return;
+    let filtered = [...DATA];
+  
+    // Filter by selected country
+    if (selectedCountry && selectedCountry !== "All") {
+      filtered = filtered.filter(
+        (recipe) => recipe.originCountry.toLowerCase() === selectedCountry.toLowerCase()
+      );
     }
-
-    const filtered = DATA.filter((recipe) =>
-      recipe.originCountry.toLowerCase() === selectedCountry.toLowerCase()
-    );
+  
+    // Filter by selected cooking time
+    switch (selectedCookingTime) {
+      case "15 to 30mins":
+        filtered = filtered.filter(recipe => recipe.cookingTime >= 15 && recipe.cookingTime <= 30);
+        break;
+      case "30 to 60mins":
+        filtered = filtered.filter(recipe => recipe.cookingTime >= 30 && recipe.cookingTime <= 60);
+        break;
+      case "60mins to 120mins":
+        filtered = filtered.filter(recipe => recipe.cookingTime >= 60 && recipe.cookingTime <= 120);
+        break;
+      case "120mins above":
+        filtered = filtered.filter(recipe => recipe.cookingTime > 120);
+        break;
+      default:
+        break;
+    }
+  
     setFilteredRecipes(filtered);
-
   };
+  
  
   const recipeAscending = [...filteredRecipes].sort((a, b) => 
     a.title > b.title ? 1 : -1

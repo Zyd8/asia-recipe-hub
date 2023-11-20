@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { View, TextInput, TouchableOpacity, StyleSheet, Image, Text, Button, Dimensions } from "react-native";
 import Modal from "react-native-modal";
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import SelectDropdown from 'react-native-select-dropdown';
 import { DATA } from "./data";
 import handleOrderBy from "./RecipeLoader";
 
 const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
   const country = ["All", "Philippines", "China", "Japan"];
+  const cookTime = ["All", "15 to 30mins", "30 to 60mins", "60mins to 120mins", "120mins above"];
+  const difficulty = ["All", "Easy", "Intermediate", "Advanced"];
+
 
   const [isModalVisible, setModalVisible] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState("");
+  const [selectedCookingTime, setSelectedCookingTime] = useState("");
   const [orderBy, setOrderBy] = useState ("Ascending");
   const [modalWidth, setModalWidth] = useState(Dimensions.get("window").width * 0.9);
   const [modalHeight, setModalHeight] = useState(Dimensions.get("window").height * 0.6);
@@ -34,6 +39,10 @@ const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
     setSelectedCountry(selectedItem);
   };
 
+  const handleCookingTimeSelect = (selectedItem) => {
+    setSelectedCookingTime(selectedItem);
+  };
+
   const recipeAscending = [...DATA].sort((a, b) => 
     a.title > b.title ? 1 : -1
   );
@@ -51,7 +60,10 @@ const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
 
   const handleFilterPress = () => {
     const actualCountry = selectedCountry === "All" ? "" : selectedCountry;
-    onFilterChange(actualCountry);
+
+
+
+    onFilterChange(actualCountry, selectedCookingTime);
     toggleModal();
   };
 
@@ -81,10 +93,11 @@ const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
           style={{ height: modalHeight, width: modalWidth, justifyContent: 'center', alignItems: 'center'}}    
           onBackdropPress={toggleModal}
         >
-          <View style={styles.modal}>
+          <View style={styles.modal2}>
             <Text style={styles.header}>Filter By:</Text>
-            <Text style={styles.header2}>Choose a Country: </Text>
             <SelectDropdown
+              defaultButtonText={"Country"}
+              style={styles.dropdown}
               data={country}
               onSelect={handleCountrySelect}
               buttonTextAfterSelection={(selectedItem, index) => {
@@ -93,6 +106,37 @@ const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
               rowTextForSelection={(item, index) => {
                 return item;
               }}
+              buttonStyle={styles.dropdown1BtnStyle}
+              buttonTextStyle={styles.dropdown1BtnTxtStyle}
+              renderDropdownIcon={isOpened => {
+                return <FontAwesome name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
+              }}
+              dropdownIconPosition={'right'}
+              dropdownStyle={styles.dropdown1DropdownStyle}
+              rowStyle={styles.dropdown1RowStyle}
+              rowTextStyle={styles.dropdown1RowTxtStyle}
+            />
+            <View style={styles.divider} />
+            <SelectDropdown
+              defaultButtonText={"Cooking Time"}
+              style={styles.dropdown}
+              data={cookTime}
+              onSelect={handleCookingTimeSelect}
+              buttonTextAfterSelection={(selectedItem, index) => {
+                return selectedItem;
+              }}
+              rowTextForSelection={(item, index) => {
+                return item;
+              }}
+              buttonStyle={styles.dropdown2BtnStyle}
+              buttonTextStyle={styles.dropdown2BtnTxtStyle}
+              renderDropdownIcon={isOpened => {
+                return <FontAwesome name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
+              }}
+              dropdownIconPosition={'right'}
+              dropdownStyle={styles.dropdown2DropdownStyle}
+              rowStyle={styles.dropdown2RowStyle}
+              rowTextStyle={styles.dropdown2RowTxtStyle}
             />
 
             <View style={styles.filler}></View>
@@ -109,8 +153,8 @@ const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
         >
           <View style={styles.modal}>
             <Text style={styles.header}>Filter By:</Text>
-            <Text style={styles.header2}>Choose a Country: </Text>
             <SelectDropdown
+              defaultButtonText={"Country"}
               style={styles.dropdown}
               data={country}
               onSelect={handleCountrySelect}
@@ -120,6 +164,36 @@ const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
               rowTextForSelection={(item, index) => {
                 return item;
               }}
+              buttonStyle={styles.dropdown1BtnStyle}
+              buttonTextStyle={styles.dropdown1BtnTxtStyle}
+              renderDropdownIcon={isOpened => {
+                return <FontAwesome name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
+              }}
+              dropdownIconPosition={'right'}
+              dropdownStyle={styles.dropdown1DropdownStyle}
+              rowStyle={styles.dropdown1RowStyle}
+              rowTextStyle={styles.dropdown1RowTxtStyle}
+            />
+            <SelectDropdown
+              defaultButtonText={"Cooking Time"}
+              style={styles.dropdown}
+              data={cookTime}
+              onSelect={handleCookingTimeSelect}
+              buttonTextAfterSelection={(selectedItem, index) => {
+                return selectedItem;
+              }}
+              rowTextForSelection={(item, index) => {
+                return item;
+              }}
+              buttonStyle={styles.dropdown2BtnStyle}
+              buttonTextStyle={styles.dropdown2BtnTxtStyle}
+              renderDropdownIcon={isOpened => {
+                return <FontAwesome name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
+              }}
+              dropdownIconPosition={'right'}
+              dropdownStyle={styles.dropdown2DropdownStyle}
+              rowStyle={styles.dropdown2RowStyle}
+              rowTextStyle={styles.dropdown2RowTxtStyle}
             />
 
             <View style={styles.filler}></View>
@@ -164,8 +238,16 @@ const styles = StyleSheet.create({
     tintColor: "white",
   },
   modal: {
-    width: 350,
-    height: 300,
+    width: 250,
+    height: 275,
+    padding: 10,
+    backgroundColor: "white",
+    borderRadius: 30,
+    marginLeft: 55,
+  },
+  modal2: {
+    width: 250,
+    height: 270,
     padding: 10,
     backgroundColor: "white",
     borderRadius: 30,
@@ -187,14 +269,37 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 30,
   },
-  dropdown: {
-    minWidth: 80,
-    minHeight: 50,
-  },
   filler: {
     margin: 20,
   },
-  confirms: {},
+  dropdown1BtnStyle: {
+  
+    height: 40,
+    backgroundColor: '#FFF',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#444',
+    marginBottom: 25,
+  },
+  dropdown1BtnTxtStyle: {color: '#444'},
+  dropdown1DropdownStyle: {backgroundColor: '#EFEFEF', height: 150},
+  dropdown1RowStyle: {backgroundColor: '#EFEFEF', borderBottomColor: '#C5C5C5'},
+  dropdown1RowTxtStyle: {color: '#444'},
+  divider: {width: 12},
+  dropdown2BtnStyle: {
+    height: 40,
+    backgroundColor: '#FFF',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#444',
+  },
+  dropdown2BtnTxtStyle: {color: '#444', textAlign: 'center'},
+  dropdown2DropdownStyle: {backgroundColor: '#EFEFEF', height: 150},
+  dropdown2RowStyle: {backgroundColor: '#EFEFEF', borderBottomColor: '#C5C5C5'},
+  dropdown2RowTxtStyle: {color: '#444'},
+  confirms: {
+    
+  },
 });
 
 export default Filter;
