@@ -18,6 +18,7 @@ export const DATA = [
       ],
       cookingTime: 65,
       originCountry: "Philippines",
+      difficulty: "Easy",
       procedure: [
         "1. Heat vegetable oil in a large skillet over medium-high heat. Cook chicken pieces until golden brown, 2 to 3 minutes per side. Transfer chicken to a plate and set aside.",
         "2. Add onion and garlic to the skillet; cook until softened and brown, about 6 minutes.",
@@ -41,6 +42,7 @@ export const DATA = [
       ],
       cookingTime: 60,
       originCountry: "Philippines",
+      difficulty: "Intermediate",
       procedure: [
         "1. In a large pot, add water and bring to a boil.",
         "2. Add pork ribs and cook until tender.",
@@ -61,6 +63,7 @@ export const DATA = [
       ],
       cookingTime: 45,
       originCountry: "Philippines",
+      difficulty: "Easy",
       procedure: [
         "1. Boil pig ears until tender, then grill until crispy.",
         "2. Chop pig ears into small pieces.",
@@ -82,6 +85,7 @@ export const DATA = [
       ],
       cookingTime: 120,
       originCountry: "China",
+      difficulty: "Advanced",
       procedure: [
         "1. Clean and season the duck with 5-spice powder and salt.",
         "2. Air-dry the duck for several hours.",
@@ -102,6 +106,7 @@ export const DATA = [
       ],
       cookingTime: 30,
       originCountry: "China",
+      difficulty: "Intermediate",
       procedure: [
         "1. Cut chicken into small cubes and marinate with soy sauce and cornstarch.",
         "2. Stir-fry chicken in a hot wok until cooked. Remove and set aside.",
@@ -123,6 +128,7 @@ export const DATA = [
       ],
       cookingTime: 45,
       originCountry: "China",
+      difficulty: "Easy",
       procedure: [
         "1. Mix ground pork, finely chopped cabbage, green onions, and ginger.",
         "2. Place a spoonful of filling on a wonton wrapper. Seal and shape the dumplings.",
@@ -142,6 +148,7 @@ export const DATA = [
       ],
       cookingTime: 15,
       originCountry: "Japan",
+      difficulty: "Easy",
       procedure: [
         "1. Slice fresh raw fish into thin pieces.",
         "2. Serve with soy sauce, wasabi, and pickled ginger.",
@@ -162,6 +169,7 @@ export const DATA = [
       ],
       cookingTime: 20,
       originCountry: "Japan",
+      difficulty: "Easy",
       procedure: [
         "1. Cook soba noodles until al dente, then rinse with cold water.",
         "2. Serve with a dipping sauce made from soy sauce, mirin, and dashi broth.",
@@ -182,6 +190,7 @@ export const DATA = [
       ],
       cookingTime: 30,
       originCountry: "Japan",
+      difficulty: "Easy",
       procedure: [
         "1. Prepare sushi rice and let it cool.",
         "2. Lay out a sheet of nori, add a layer of rice, and top with fish, cucumber, and avocado",

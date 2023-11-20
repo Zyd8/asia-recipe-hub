@@ -30,20 +30,45 @@ const RecipeLoader = () => {
     setFilteredRecipes(filtered);
   };
 
-  const handleFilterChange = (selectedCountry) => {
+  const handleFilterChange = (selectedCountry, selectedCookingTime, selectedDifficulty) => {
     console.log("Selected Country:", selectedCountry);
+    console.log("Selected Cooking Time:", selectedCookingTime);
+    console.log("Selected Cooking Time:", selectedDifficulty);
 
-    if (!selectedCountry) {
-      setFilteredRecipes(DATA);
-      return;
+    let filtered = [...DATA];
+  
+    if (selectedCountry && selectedCountry !== "All") {
+      filtered = filtered.filter(
+        (recipe) => recipe.originCountry.toLowerCase() === selectedCountry.toLowerCase()
+      );
+    }
+  
+    switch (selectedCookingTime) {
+      case "15 to 30mins":
+        filtered = filtered.filter(recipe => recipe.cookingTime >= 15 && recipe.cookingTime <= 30);
+        break;
+      case "30 to 60mins":
+        filtered = filtered.filter(recipe => recipe.cookingTime >= 30 && recipe.cookingTime <= 60);
+        break;
+      case "60mins to 120mins":
+        filtered = filtered.filter(recipe => recipe.cookingTime >= 60 && recipe.cookingTime <= 120);
+        break;
+      case "120mins above":
+        filtered = filtered.filter(recipe => recipe.cookingTime > 120);
+        break;
+      default:
+        break;
     }
 
-    const filtered = DATA.filter((recipe) =>
-      recipe.originCountry.toLowerCase() === selectedCountry.toLowerCase()
-    );
+    if (selectedDifficulty && selectedDifficulty !== "All") {
+      filtered = filtered.filter(
+        (recipe) => recipe.difficulty.toLowerCase() === selectedDifficulty.toLowerCase()
+      );
+    }
+  
     setFilteredRecipes(filtered);
-
   };
+  
  
   const recipeAscending = [...filteredRecipes].sort((a, b) => 
     a.title > b.title ? 1 : -1
