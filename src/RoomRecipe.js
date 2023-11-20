@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, ScrollView, useWindowDimensions, Dimensions, FlatList } from "react-native";
+import { View, Text, StyleSheet, ScrollView, useWindowDimensions, Dimensions, FlatList, ImageBackground } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import YoutubePlayer from "react-native-youtube-iframe";
@@ -55,6 +55,7 @@ const RoomRecipe = () => {
   const renderIngredientItem = ({ item, index }) => (
     <View style={styles.ingredientContainer}>
       <BouncyCheckbox
+        fillColor="#AB8476"
         isChecked={checkedIngredients[index]}
         onPress={() => handleIngredientCheck(index)}
       />
@@ -72,6 +73,7 @@ const RoomRecipe = () => {
   const renderProcedureItem = ({ item, index }) => (
     <View style={styles.procedureContainer}>
       <BouncyCheckbox
+        fillColor="#AB8476"
         isChecked={checkedProcedure[index]}
         onPress={() => handleProcedureCheck(index)}
       />
@@ -91,6 +93,9 @@ const RoomRecipe = () => {
       style={darkmode ? styles.darkContainer : styles.lightContainer}
       contentContainerStyle={{ paddingBottom: 100 }}
     >
+    <ImageBackground source={recipe.imageBackground} 
+    imageStyle={darkmode ? styles.darkInternalBackgroundImage : styles.lightInternalBackgroundImage}
+    style={darkmode ? styles.darkBackgroundImage : styles.lightBackgroundImage}>
      <YoutubePlayer
         height={isPortrait ? width * 0.6 : width * 0.3} 
         play={true}
@@ -123,6 +128,7 @@ const RoomRecipe = () => {
 
         <Timer/>
       </ScrollView>
+      </ImageBackground> 
     </View>
   );
 };
@@ -142,6 +148,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row', 
     alignItems: 'center', 
     marginBottom: 10,
+    marginLeft: 10
   },
   strikethrough: {
     textDecorationLine: "line-through",
@@ -150,6 +157,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 10,
+    marginLeft: 10
   },
   procedureStep: {
     fontSize: 16,
@@ -249,6 +257,22 @@ const styles = StyleSheet.create({
     backgroundColor: "#A4D8D8",
     padding: 5,
     borderRadius: 10,
+  },
+  lightBackgroundImage: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor:'#FCF9F2',
+  },
+  darkBackgroundImage: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor:"#323233",
+  },
+  lightInternalBackgroundImage: {
+    opacity: 0.1
+  },
+  darkInternalBackgroundImage: {
+    opacity: 0.2
   }
 });
 
