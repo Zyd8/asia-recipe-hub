@@ -44,6 +44,9 @@ const RecipeLoader = () => {
     }
   
     switch (selectedCookingTime) {
+      case "15mins below":
+        filtered = filtered.filter(recipe => recipe.cookingTime < 15);
+        break;
       case "15 to 30mins":
         filtered = filtered.filter(recipe => recipe.cookingTime >= 15 && recipe.cookingTime <= 30);
         break;

@@ -9,7 +9,7 @@ import { useFocusEffect } from '@react-navigation/native';
 
 const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
   const country = ["All", "Philippines", "China", "Japan", "Cambodia", "Arabia", "Singapore", "India", "South Korea", "Malaysia", "Thailand", "Vietnam"];
-  const cookTime = ["All", "15 to 30mins", "30 to 60mins", "60mins to 120mins", "120mins above"];
+  const cookTime = ["All", "15mins below", "15 to 30mins", "30 to 60mins", "60mins to 120mins", "120mins above"];
   const difficulty = ["All", "Easy", "Intermediate", "Advanced"];
   const [darkmode, setDarkMode] = useState(false);
   const [isModalVisible, setModalVisible] = useState(false);
