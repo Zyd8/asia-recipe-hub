@@ -575,7 +575,7 @@ export const DATA = [
     id: "21",
     videoId: "6HVDmHRHMOU",
     title: "Leche Flan",
-    image: require("./img/lecheplan.jpg"),
+    image: require("./img/lecheflan.jpg"),
     ingredients: [
       "10 egg yolks",
       "1 can (14 oz) sweetened condensed milk",
@@ -711,6 +711,7 @@ export const DATA = [
       "Add bean sprouts and Chinese chives, cooking until the vegetables are slightly wilted.",
       "Serve hot, with lime wedges on the side.",
     ],
+    imageBackground: require("./img/singapore.jpg")
   },
   {
     id: "26",
