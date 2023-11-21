@@ -44,6 +44,9 @@ const RecipeLoader = () => {
     }
   
     switch (selectedCookingTime) {
+      case "15mins below":
+        filtered = filtered.filter(recipe => recipe.cookingTime < 15);
+        break;
       case "15 to 30mins":
         filtered = filtered.filter(recipe => recipe.cookingTime >= 15 && recipe.cookingTime <= 30);
         break;
@@ -69,7 +72,6 @@ const RecipeLoader = () => {
     setFilteredRecipes(filtered);
   };
   
- 
   const recipeAscending = [...filteredRecipes].sort((a, b) => 
     a.title > b.title ? 1 : -1
   );
@@ -77,7 +79,7 @@ const RecipeLoader = () => {
   const recipeDescending = [...filteredRecipes].sort((a, b) => 
     a.title > b.title ? -1 : 1
   );
-
+  
   const handleOrderBy = () => {
     const filtered = orderBy === "Ascending" ? recipeDescending : recipeAscending;
     setFilteredRecipes(filtered);
