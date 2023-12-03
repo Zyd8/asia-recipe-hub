@@ -38,7 +38,7 @@ const StackScreen = ({ darkmode, handleDarkMode }) => {
                 </TouchableOpacity>
                 <TouchableOpacity onPress={handleMeasurementPopUp} style={{ height: 25, width: 50, marginRight: 12, marginTop: 10, justifyContent: "center", alignItems: "center"}}>
                   <Image source={darkmode ? require("./src/img/measurementcupdark.png") : require("./src/img/measurementcuplight.png")} style={{ height: 25, width: 25, marginTop: 5, justifyContent: "center", alignItems: "center"}} />
-                  <Text style={{ fontSize: 8, textAlign: "center", color: darkmode ? "white" : "gray" }}>Measurements</Text>
+                  <Text style={{ fontSize: 9, textAlign: "center", color: darkmode ? "white" : "gray" }}>Measurements</Text>
                 </TouchableOpacity>
                 <MeasurementPopUp isVisible={isMeasurementPopUpVisible} onClose={handleCloseMeasurementPopUp} />
               </View>
@@ -58,7 +58,7 @@ const StackScreen = ({ darkmode, handleDarkMode }) => {
           headerRight: () => (
           <TouchableOpacity onPress={handleMeasurementPopUp} style={{ height: 25, width: 50, marginRight: 12, marginTop: 10, justifyContent: "center", alignItems: "center"}}>
             <Image source={darkmode ? require("./src/img/measurementcupdark.png") : require("./src/img/measurementcuplight.png")} style={{ height: 25, width: 25, marginTop: 5, justifyContent: "center", alignItems: "center"}} />
-            <Text style={{ fontSize: 8, textAlign: "center", color: darkmode ? "white" : "gray" }}>Measurements</Text>
+            <Text style={{ fontSize: 9, textAlign: "center", color: darkmode ? "white" : "gray" }}>Measurements</Text>
           </TouchableOpacity>
           ),
           headerStyle: {
