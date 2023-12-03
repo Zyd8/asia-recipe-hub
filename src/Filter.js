@@ -16,7 +16,6 @@ const Filter = ({ searchTerm, onSearch, onFilterChange, onOrderBy }) => {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedCookingTime, setSelectedCookingTime] = useState("");
   const [selectedDifficulty, setSelectedDifficulty] = useState("");
-  const [orderBy, setOrderBy] = useState ("Ascending");
   const [modalWidth, setModalWidth] = useState(Dimensions.get("window").width * 0.9);
   const [modalHeight, setModalHeight] = useState(Dimensions.get("window").height * 0.6);
 
