@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { useState, useEffect } from "react";
-import { SafeAreaView, StyleSheet, Image, TouchableOpacity, View} from "react-native";
+import { SafeAreaView, StyleSheet, Image, TouchableOpacity, View, Text} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -33,11 +33,12 @@ const StackScreen = ({ darkmode, handleDarkMode }) => {
           options={{
             headerRight: () => (
               <View style={{ flexDirection: "row" }}>
-                <TouchableOpacity onPress={handleDarkMode} style={{ height: 25, width: 25, marginRight: 20, marginTop: 2 }}>
-                  <Image source={darkmode ? require("./src/img/darkmodeicon.png") : require("./src/img/lightmodeicon.png")} style={{ height: 30, width: 30, marginTop: 5 }} />
+                <TouchableOpacity onPress={handleDarkMode} style={{ height: 25, width: 25, marginRight: 20, marginTop: 5 }}>
+                  <Image source={darkmode ? require("./src/img/darkmodeicon.png") : require("./src/img/lightmodeicon.png")} style={{ height: 30, width: 30, marginTop: 5}} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={handleMeasurementPopUp} style={{ height: 25, width: 25, marginRight: 12, marginTop: 5 }}>
-                  <Image source={darkmode ? require("./src/img/measurementcupdark.png") : require("./src/img/measurementcuplight.png")} style={{ height: 25, width: 25, marginTop: 5 }} />
+                <TouchableOpacity onPress={handleMeasurementPopUp} style={{ height: 25, width: 50, marginRight: 12, marginTop: 10, justifyContent: "center", alignItems: "center"}}>
+                  <Image source={darkmode ? require("./src/img/measurementcupdark.png") : require("./src/img/measurementcuplight.png")} style={{ height: 25, width: 25, marginTop: 5, justifyContent: "center", alignItems: "center"}} />
+                  <Text style={{ fontSize: 8, textAlign: "center", color: darkmode ? "white" : "gray" }}>Measurements</Text>
                 </TouchableOpacity>
                 <MeasurementPopUp isVisible={isMeasurementPopUpVisible} onClose={handleCloseMeasurementPopUp} />
               </View>
@@ -55,9 +56,10 @@ const StackScreen = ({ darkmode, handleDarkMode }) => {
         component={RoomRecipe}
         options={{
           headerRight: () => (
-            <TouchableOpacity onPress={handleMeasurementPopUp} style={{ marginRight: 15 }}>
-              <Image source={darkmode ? require("./src/img/measurementcupdark.png") : require("./src/img/measurementcuplight.png")} style={{ height: 25, width: 25, marginTop: 10 }} />
-            </TouchableOpacity>
+          <TouchableOpacity onPress={handleMeasurementPopUp} style={{ height: 25, width: 50, marginRight: 12, marginTop: 10, justifyContent: "center", alignItems: "center"}}>
+            <Image source={darkmode ? require("./src/img/measurementcupdark.png") : require("./src/img/measurementcuplight.png")} style={{ height: 25, width: 25, marginTop: 5, justifyContent: "center", alignItems: "center"}} />
+            <Text style={{ fontSize: 8, textAlign: "center", color: darkmode ? "white" : "gray" }}>Measurements</Text>
+          </TouchableOpacity>
           ),
           headerStyle: {
             backgroundColor: darkmode ? 'black' : 'white', 
