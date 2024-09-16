@@ -72,7 +72,6 @@ const RecipeLoader = () => {
     setFilteredRecipes(filtered);
   };
   
- 
   const recipeAscending = [...filteredRecipes].sort((a, b) => 
     a.title > b.title ? 1 : -1
   );
@@ -80,7 +79,7 @@ const RecipeLoader = () => {
   const recipeDescending = [...filteredRecipes].sort((a, b) => 
     a.title > b.title ? -1 : 1
   );
-
+  
   const handleOrderBy = () => {
     const filtered = orderBy === "Ascending" ? recipeDescending : recipeAscending;
     setFilteredRecipes(filtered);
